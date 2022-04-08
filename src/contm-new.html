@@ -2965,7 +2965,37 @@
 
     <section>
      <h5 id="contm_nary">N-ary Operators (classes nary-arith, nary-functional, nary-logical,
-     nary-linalg, nary-set, nary-constructor)</h5>
+     nary-linalg, nary-set)</h5>
+     <table class="syntax data">
+
+      <tbody>
+
+       <tr>
+	<th>Class</th>
+	<td><a class="intref" href="#contm_nary">nary-arith</a></td>
+       </tr>
+
+       <tr>
+	<th>Attributes</th>
+	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
+       </tr>
+
+       <tr>
+	<th>Content</th>
+	<td>Empty</td>
+       </tr>
+
+       <tr>
+	<th>Qualifiers</th>
+	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
+       </tr>
+
+       <tr>
+	<th>OM Symbols</th>
+	<td><a class="omsymbol" href="https://openmath.org/cd/arith1#plus">plus</a></td>
+       </tr>
+      </tbody>
+     </table>
 
      <p>Many MathML operators may be used with an arbitrary number of
      arguments. <span>The corresponding OpenMath symbols for elements in these classes
@@ -2975,18 +3005,56 @@
      the list may be specified implicitly via the use of qualifier
      elements.</p>
 
-     <section>
-      <h6 id="contm_nary_schema">Schema Patterns</h6>
 
       <p>The elements representing these n-ary operators are
       specified in the following schema patterns in <a href="#parsing"></a>:
       <code class="parsing_ref">nary-arith.class</code>, <code class="parsing_ref">nary-functional.class</code>, <code class="parsing_ref">nary-logical.class</code>,
-      <code class="parsing_ref">nary-linalg.class</code>, <code class="parsing_ref">nary-set.class</code>, <code class="parsing_ref">nary-constructor.class</code>.</p>
-     </section>
+      <code class="parsing_ref">nary-linalg.class</code>, <code class="parsing_ref">nary-set.class</code>.</p>
+
     </section>
 
+      <section>
+     <h5 id="contm_nary_construct">N-ary Constructors (class nary-constructor)</h5>
+
+
+      <p>The elements representing these n-ary constructors  are
+      specified in the following schema pattern in <a href="#parsing"></a>:
+      <code class="parsing_ref">nary-constructor.class</code>.</p>
+
+      </section>
     <section>
      <h5 id="contm_nary_reln">N-ary Relations (classes nary-reln, nary-set-reln)</h5>
+
+          <table class="syntax data">
+
+      <tbody>
+
+       <tr>
+	<th>Class</th>
+	<td><a class="intref" href="#contm_nary">nary-reln</a></td>
+       </tr>
+
+       <tr>
+	<th>Attributes</th>
+	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
+       </tr>
+
+       <tr>
+	<th>Content</th>
+	<td>Empty</td>
+       </tr>
+
+       <tr>
+	<th>Qualifiers</th>
+	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
+       </tr>
+
+       <tr>
+	<th>OM Symbols</th>
+	<td><a class="omsymbol" href="https://openmath.org/cd/relation1#eq">eq</a></td>
+       </tr>
+      </tbody>
+     </table>
 
      <p>MathML allows transitive relations to be used with multiple
      arguments, to give a natural expression to <span>&#x201c;chains&#x201d;</span> of
@@ -3000,17 +3068,44 @@
      semantics of which is essentially to take the conjunction of applying
      the predicate to elements of the domain two at a time.</p>
 
-     <section>
-      <h6 id="contm_nary_reln_schema">Schema Patterns</h6>
 
       <p>The elements representing these n-ary operators are
       specified in the following schema patterns in <a href="#parsing"></a>:
       <code class="parsing_ref">nary-reln.class</code>, <code class="parsing_ref">nary-set-reln.class</code>.</p>
-     </section>
+
     </section>
 
     <section>
      <h5 id="contm_nary_unary">N-ary/Unary Operators (classes nary-minmax, nary-stats)</h5>
+      <tbody>
+
+       <tr>
+	<th>Class</th>
+	<td><a class="intref" href="#contm_nary_unary">nary-minmax</a></td>
+       </tr>
+
+       <tr>
+	<th>Attributes</th>
+	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
+       </tr>
+
+       <tr>
+	<th>Content</th>
+	<td>Empty</td>
+       </tr>
+
+       <tr>
+	<th>Qualifiers</th>
+	<td><code class="parsing_ref">BvarQ</code>,
+	<code class="parsing_ref">DomainQ</code></td>
+       </tr>
+
+       <tr>
+	<th>OM Symbols</th>
+	<td><a class="omsymbol" href="https://openmath.org/cd/minmax1#max">max</a></td>
+       </tr>
+      </tbody>
+     </table>
 
      <p>The MathML elements, <code class="element">max</code>, <code class="element">min</code> and some statistical
      elements such as <code class="element">mean</code> may be used  as a n-ary function as in
@@ -3025,18 +3120,42 @@
      constructed from the explicitly supplied arguments according to the
      following rule.</p>
 
-     <section>
-      <h6 id="contm_nary_unary_schema">Schema Patterns</h6>
 
       <p>The elements representing these n-ary operators are
       specified in the following schema patterns in <a href="#parsing"></a>:
       <code class="parsing_ref">nary-minmax.class</code>, <code class="parsing_ref">nary-stats.class</code>.</p>
-     </section>
+
     </section>
 
     <section>
      <h5 id="contm_binary">Binary Operators (classes binary-arith, binary-logical, binary-reln, binary-linalg,
      binary-set)</h5>
+
+          <table class="syntax data">
+
+      <tbody>
+
+       <tr>
+	<th>Class</th>
+	<td><a class="intref" href="#contm_binary">binary-arith</a></td>
+       </tr>
+
+       <tr>
+	<th>Attributes</th>
+	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
+       </tr>
+
+       <tr>
+	<th>Content</th>
+	<td>Empty</td>
+       </tr>
+
+       <tr>
+	<th>OM Symbols</th>
+	<td><a class="omsymbol" href="https://openmath.org/cd/integer1#quotient">quotient</a></td>
+       </tr>
+      </tbody>
+     </table>
 
      <p>Binary operators take two arguments and simply map to OpenMath
      symbols via <a>Rewrite: element</a>
@@ -3045,8 +3164,6 @@
      in which the arguments are children of the element, and the symbol
      used depends on the type element as described in <a href="#contm_interval"></a> </p>
 
-     <section>
-      <h6 id="contm_binary_schema">Schema Patterns</h6>
 
       <p>The elements representing these binary operators are
       specified in the following schema patterns in <a href="#parsing"></a>:
@@ -3055,18 +3172,42 @@
       <code class="parsing_ref">binary-reln.class</code>,
       <code class="parsing_ref">binary-linalg.class</code>,
       <code class="parsing_ref">binary-set.class</code>.</p>
-     </section>
+
     </section>
 
     <section>
      <h5 id="contm_unary">Unary Operators (classes unary-arith, unary-linalg, unary-functional, unary-set, unary-elementary,
      unary-veccalc)</h5>
 
+     <table class="syntax data">
+
+      <tbody>
+
+       <tr>
+	<th>Class</th>
+	<td><a class="intref" href="#contm_unary">unary-arith</a></td>
+       </tr>
+
+       <tr>
+	<th>Attributes</th>
+	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
+       </tr>
+
+       <tr>
+	<th>Content</th>
+	<td>Empty</td>
+       </tr>
+
+       <tr>
+	<th>OM Symbols</th>
+	<td><a class="omsymbol" href="https://openmath.org/cd/integer1#factorial">factorial</a></td>
+       </tr>
+      </tbody>
+     </table>
+
      <p>Unary operators take a single argument and map to OpenMath symbols
      via <a>Rewrite: element</a> without the need of any special rewrite rules.</p>
 
-     <section>
-      <h6 id="contm_unary_schema">Schema Patterns</h6>
 
       <p>The elements representing these unary operators are
       specified in the following schema patterns in <a href="#parsing"></a>:
@@ -3075,11 +3216,36 @@
       <code class="parsing_ref">unary-set.class</code>,
       <code class="parsing_ref">unary-elementary.class</code>,
       <code class="parsing_ref">unary-veccalc.class</code>.</p>
-     </section>
+
     </section>
 
     <section>
      <h5 id="contm_constant">Constants (classes constant-arith, constant-set)</h5>
+     <table class="syntax data">
+
+      <tbody>
+
+       <tr>
+	<th>Class</th>
+	<td><a class="intref" href="#contm_constant">constant-set</a></td>
+       </tr>
+
+       <tr>
+	<th>Attributes</th>
+	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
+       </tr>
+
+       <tr>
+	<th>Content</th>
+	<td>Empty</td>
+       </tr>
+
+       <tr>
+	<th>OM Symbols</th>
+	<td><a class="omsymbol" href="https://openmath.org/cd/setname1#Q">Q</a></td>
+       </tr>
+      </tbody>
+     </table>
 
      <p>Constant symbols relate to mathematical constants such as e and true and
      also to names of sets such as the Real Numbers, and Integers.
@@ -3087,28 +3253,56 @@
      symbol listed in the syntax tables for these elements in <a href="#contm_constantsandsymbols"></a>.
      </p>
 
-     <section>
-      <h6 id="contm_constant_schema">Schema Patterns</h6>
 
       <p>The elements representing these constants are
       specified in the schema patterns
       <code class="parsing_ref">constant-arith.class</code> and  <code class="parsing_ref">constant-set.class</code>.</p>
-     </section>
+
 
     </section>
 
     <section>
      <h5 id="contm_quantifier">Quantifiers (class quantifier)</h5>
 
+     <table class="syntax data">
+
+      <tbody>
+
+       <tr>
+	<th>Class</th>
+	<td><a class="intref" href="#contm_quantifier">quantifier</a></td>
+       </tr>
+
+       <tr>
+	<th>Attributes</th>
+	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
+       </tr>
+
+       <tr>
+	<th>Content</th>
+	<td>Empty</td>
+       </tr>
+
+       <tr>
+	<th>Qualifiers</th>
+	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
+       </tr>
+
+       <tr>
+	<th>OM Symbols</th>
+	<td><a class="omsymbol" href="https://openmath.org/cd/quant1#forall">forall</a>,
+	<a class="omsymbol" href="https://openmath.org/cd/logic1#implies">implies</a></td>
+       </tr>
+      </tbody>
+     </table>
+
      <p>The Quantifier class is used for the forall and exists quantifiers
      of predicate calculus.</p>
 
-     <section>
-      <h6 id="contm_quantifier_schema">Schema Patterns</h6>
 
       <p>The elements representing quantifiers are
       specified in the schema pattern <code class="parsing_ref">quantifier.class</code>.</p>
-     </section>
+
     </section>
 
     <section>
@@ -3117,8 +3311,6 @@
      <p>Special purpose classes, described in the sections for the
      appropriate elements</p>
 
-     <section>
-      <h6 id="contm_otherclass_schema">Schema Patterns</h6>
 
       <p>The elements are specified in the following schema patterns in <a href="#parsing"></a>:
       <code class="parsing_ref">lambda.class</code>,
@@ -3128,7 +3320,7 @@
       <code class="parsing_ref">sum.class</code>,
       <code class="parsing_ref">product.class</code>,
       <code class="parsing_ref">limit.class</code>.</p>
-     </section>
+
     </section>
 
    </section>
@@ -3289,20 +3481,6 @@
 	<td><a class="intref" href="#contm_unary">unary-functional</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/fns1#inverse">inverse</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -3525,21 +3703,6 @@
        </tr>
 
        <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/fns1#left_compose">left_compose</a></td>
        </tr>
@@ -3643,20 +3806,6 @@
 	<td><a class="intref" href="#contm_unary">unary-functional</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/fns1#identity">identity</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -3717,20 +3866,6 @@
 	<td><a class="intref" href="#contm_unary">unary-functional</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/fns1#domain">domain</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -3780,20 +3915,6 @@
 	<td><a class="intref" href="#contm_unary">unary-functional</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/fns1#range">range</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -3845,20 +3966,6 @@
 	<td><a class="intref" href="#contm_unary">unary-functional</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/fns1#image">image</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -4103,20 +4210,6 @@
 	<td><a class="intref" href="#contm_binary">binary-arith</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/integer1#quotient">quotient</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -4165,20 +4258,6 @@
 	<td><a class="intref" href="#contm_unary">unary-arith</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/integer1#factorial">factorial</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -4219,21 +4298,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_binary">binary-arith</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/arith1#divide">divide</a></td>
        </tr>
       </tbody>
      </table>
@@ -4276,29 +4340,9 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm_nary">nary-minmax</a></td>
+	<td><a class="intref" href="#contm_nary_unary">nary-minmax</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,
-	<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/minmax1#max">max</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -4388,28 +4432,9 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm_nary">nary-minmax</a></td>
+	<td><a class="intref" href="#contm_nary_unary">nary-minmax</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/minmax1#min">min</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -4492,17 +4517,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_unary">unary-arith</a>, <a class="intref" href="#contm_binary">binary-arith</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
        <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/arith1#unary_minus">unary_minus</a>, <a class="omsymbol" href="https://openmath.org/cd/arith1#minus">minus</a></td>
@@ -4566,30 +4580,9 @@
      <table class="syntax data">
 
       <tbody>
-
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_nary">nary-arith</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/arith1#plus">plus</a></td>
        </tr>
       </tbody>
      </table>
@@ -4636,21 +4629,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_binary">binary-arith</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/arith1#power">power</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -4692,17 +4670,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_binary">binary-arith</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
        <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/integer1#remainder">remainder</a></td>
@@ -4752,26 +4719,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_nary">nary-arith</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/arith1#times">times</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -4817,26 +4764,11 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_unary">unary-arith</a>, <a class="intref" href="#contm_binary">binary-arith</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
        <tr>
 	<th>Qualifiers</th>
 	<td><code class="parsing_ref">degree</code></td>
        </tr>
 
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/arith1#root">root</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -4881,26 +4813,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_nary">nary-arith</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/arith1#gcd">gcd</a></td>
        </tr>
       </tbody>
      </table>
@@ -4951,26 +4863,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_nary">nary-logical</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/logic1#and">and</a></td>
        </tr>
       </tbody>
      </table>
@@ -5083,26 +4975,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_nary">nary-logical</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/logic1#or">or</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -5212,25 +5084,6 @@
 	<td><a class="intref" href="#contm_nary">nary-logical</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/logic1#xor">xor</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -5274,20 +5127,6 @@
 	<td><a class="intref" href="#contm_unary">unary-logical</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/logic1#not">not</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -5330,20 +5169,6 @@
 	<td><a class="intref" href="#contm_binary">binary-logical</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/logic1#implies">implies</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -5385,21 +5210,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_quantifier">quantifier</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
        </tr>
 
        <tr>
@@ -5469,21 +5279,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_quantifier">quantifier</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
        </tr>
 
        <tr>
@@ -5623,20 +5418,6 @@
 	<td><a class="intref" href="#contm_unary">unary-arith</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/arith1#abs">abs</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -5680,20 +5461,6 @@
 	<td><a class="intref" href="#contm_unary">unary-arith</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/complex1#conjugate">conjugate</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -5750,20 +5517,6 @@
 	<td><a class="intref" href="#contm_unary">unary-arith</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/complex1#argument">argument</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -5826,20 +5579,6 @@
 	<td><a class="intref" href="#contm_unary">unary-arith</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/complex1#real">real</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -5901,20 +5640,6 @@
 	<td><a class="intref" href="#contm_unary">unary-arith</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/complex1#imaginary">imaginary</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -5975,26 +5700,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_nary">nary-arith</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/arith1#lcm">lcm</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -6046,20 +5751,6 @@
 	<td><a class="intref" href="#contm_unary">unary-arith</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/rounding1#floor">floor</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -6101,21 +5792,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_unary">unary-arith</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/rounding1#ceiling">ceiling</a></td>
        </tr>
       </tbody>
      </table>
@@ -6160,27 +5836,7 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm_nary">nary-reln</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/relation1#eq">eq</a></td>
+	<td><a class="intref" href="#contm_nary_reln">nary-reln</a></td>
        </tr>
       </tbody>
      </table>
@@ -6232,20 +5888,6 @@
 	<td><a class="intref" href="#contm_binary">binary-reln</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/relation1#neq">neq</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -6285,27 +5927,7 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm_nary">nary-reln</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/relation1#gt">gt</a></td>
+	<td><a class="intref" href="#contm_nary_reln">nary-reln</a></td>
        </tr>
       </tbody>
      </table>
@@ -6349,27 +5971,7 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm_nary">nary-reln</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/relation1#lt">lt</a></td>
+	<td><a class="intref" href="#contm_nary_reln">nary-reln</a></td>
        </tr>
       </tbody>
      </table>
@@ -6413,28 +6015,9 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm_nary">nary-reln</a></td>
+	<td><a class="intref" href="#contm_nary_reln">nary-reln</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/relation1#geq">geq</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -6494,28 +6077,9 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm_nary">nary-reln</a></td>
+	<td><a class="intref" href="#contm_nary_reln">nary-reln</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/relation1#leq">leq</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -6578,20 +6142,6 @@
 	<td><a class="intref" href="#contm_binary">binary-logical</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/logic1#equivalent">equivalent</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -6641,20 +6191,6 @@
 	<td><a class="intref" href="#contm_binary">binary-reln</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/relation1#approx">approx</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -6703,20 +6239,6 @@
 	<td><a class="intref" href="#contm_binary">binary-reln</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/integer1#factorof">factorof</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -7224,20 +6746,6 @@
 	<td><a class="intref" href="#contm_unary">unary-veccalc</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/veccalc1#divergence">divergence</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -7377,20 +6885,6 @@
 	<td><a class="intref" href="#contm_unary">unary-veccalc</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/veccalc1#grad">grad</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -7495,20 +6989,6 @@
 	<td><a class="intref" href="#contm_unary">unary-veccalc</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/veccalc1#curl">curl</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -7569,20 +7049,6 @@
 	<td><a class="intref" href="#contm_unary">unary-veccalc</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/veccalc1#Laplacian">Laplacian</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -7680,33 +7146,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_nary">nary-setlist-constructor</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code>, <code class="parsing_ref">type</code>?</td>
-       </tr>
-
-       <tr>
-
-	<th><code class="attribute">type</code> Attribute Values</th>
-
-	<td><code class="attributevalue">set</code> | <code class="attributevalue">multiset</code> | text </td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td><code class="parsing_ref">ContExp</code>*</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/set1#set">set</a>, <a class="omsymbol" href="https://openmath.org/cd/multiset1#multiset">multiset</a></td>
        </tr>
       </tbody>
      </table>
@@ -7873,25 +7312,10 @@
        </tr>
 
        <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code>,  <code class="parsing_ref">order</code></td>
-       </tr>
-
-       <tr>
 
 	<th><code class="attribute">order</code> Attribute Values</th>
 
 	<td>"numeric" | "lexicographic"</td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td><code class="parsing_ref">ContExp</code>*</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
        </tr>
 
        <tr>
@@ -7987,25 +7411,6 @@
 	<td><a class="intref" href="#contm_nary">nary-set</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/set1#union">union</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -8080,26 +7485,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_nary">nary-set</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/set1#intersect">intersect</a></td>
        </tr>
       </tbody>
      </table>
@@ -8176,20 +7561,6 @@
 	<td><a class="intref" href="#contm_binary">binary-set</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/set1#in">in</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -8233,20 +7604,6 @@
 	<td><a class="intref" href="#contm_binary">binary-set</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/set1#notin">notin</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -8410,20 +7767,6 @@
 	<td><a class="intref" href="#contm_binary">binary-set</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/set1#notsubset">notsubset</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -8470,20 +7813,6 @@
 	<td><a class="intref" href="#contm_binary">binary-set</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/set1#notprsubset">notprsubset</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -8527,16 +7856,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_binary">binary-set</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
        </tr>
 
        <tr>
@@ -8588,17 +7907,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_unary">unary-set</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
        <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/set1#size">size</a>, <a class="omsymbol" href="https://openmath.org/cd/multiset1#size">size</a></td>
@@ -8651,26 +7959,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_nary">nary-set</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/set1#cartesian_product">cartesian_product</a></td>
        </tr>
       </tbody>
      </table>
@@ -9165,20 +8453,10 @@
        </tr>
 
        <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code>, <code class="parsing_ref">type</code>?</td>
-       </tr>
-
-       <tr>
 
 	<th><code class="attribute">type</code> Attribute Values</th>
 
 	<td> string</td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
        </tr>
 
        <tr>
@@ -9293,20 +8571,6 @@
 	<td><a class="intref" href="#contm_unary">unary-elementary</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/transc1#sin">sin</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -9392,21 +8656,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_unary">unary-elementary</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/transc1#arcsin">arcsin</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -9473,21 +8722,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_unary">unary-elementary</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/transc1#sinh">sinh</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -9532,20 +8766,6 @@
 	<td><a class="intref" href="#contm_unary">unary-elementary</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/transc1#arcsinh">arcsinh</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -9599,20 +8819,6 @@
 	<td><a class="intref" href="#contm_unary">unary-arith</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/transc1#exp">exp</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -9655,20 +8861,6 @@
 	<td><a class="intref" href="#contm_unary">unary-functional</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/transc1#ln">ln</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -9710,26 +8902,11 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_unary">unary-functional</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
        <tr>
 	<th>Qualifiers</th>
 	<td><code class="parsing_ref">logbase</code></td>
        </tr>
 
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/transc1#log">log</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -10235,16 +9412,6 @@
        </tr>
 
        <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
 	<th>Qualifiers</th>
 	<td><code class="parsing_ref">degree</code>,
 	<code class="parsing_ref">momentabout</code></td>
@@ -10354,29 +9521,6 @@
 	<td><a class="intref" href="#contm_nary">nary-constructor</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,
-	<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td><code class="parsing_ref">ContExp</code>*</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbol</th>
-
-	<td>
-	 <a class="omsymbol" href="https://openmath.org/cd/linalg2#vector">vector</a>
-	</td>
-       </tr>
       </tbody>
      </table>
 
@@ -10455,30 +9599,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_nary">nary-constructor</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,
-	<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td><code class="parsing_ref">ContExp</code>*</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbol</th>
-
-	<td>
-	 <a class="omsymbol" href="https://openmath.org/cd/linalg2#matrix">matrix</a>
-	</td>
        </tr>
       </tbody>
      </table>
@@ -10573,30 +9693,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_nary">nary-constructor</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">BvarQ</code>,
-	<code class="parsing_ref">DomainQ</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td><code class="parsing_ref">ContExp</code>*</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbol</th>
-
-	<td>
-	 <a class="omsymbol" href="https://openmath.org/cd/linalg2#matrixrow">matrixrow</a>
-	</td>
-       </tr>
       </tbody>
      </table>
 
@@ -10618,20 +9714,6 @@
 	<td><a class="intref" href="#contm_unary">unary-linalg</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/linalg1#determinant">determinant</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -10677,20 +9759,6 @@
 	<td><a class="intref" href="#contm_unary">unary-linalg</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/linalg1#transpose">transpose</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -10733,17 +9801,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_nary">nary-linalg</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
        <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/linalg1#vector_selector">vector_selector</a>,
@@ -10863,21 +9920,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_binary">binary-linalg</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/linalg1#vectorproduct">vectorproduct</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -10943,20 +9985,6 @@
 	<td><a class="intref" href="#contm_binary">binary-linalg</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/linalg1#scalarproduct">scalarproduct</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -11019,23 +10047,6 @@
 
 	<td><a class="intref" href="#contm_binary">binary-linalg</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-
-	<td><a class="omsymbol" href="https://openmath.org/cd/linalg1#outerproduct">outerproduct</a></td>
-       </tr>
       </tbody>
      </table>
 
@@ -11087,17 +10098,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_constant">constant-set</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
        <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/setname1#Z">Z</a></td>
@@ -11143,16 +10143,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_constant">constant-set</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
        </tr>
 
        <tr>
@@ -11203,17 +10193,6 @@
 	<th>Class</th>
 	<td><a class="intref" href="#contm_constant">constant-set</a></td>
        </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
        <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/setname1#Q">Q</a></td>
@@ -11266,16 +10245,6 @@
        </tr>
 
        <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/setname1#N">N</a></td>
        </tr>
@@ -11322,16 +10291,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_constant">constant-set</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
        </tr>
 
        <tr>
@@ -11386,16 +10345,6 @@
        </tr>
 
        <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/setname1#P">P</a></td>
        </tr>
@@ -11440,16 +10389,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_constant">constant-arith</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
        </tr>
 
        <tr>
@@ -11504,16 +10443,6 @@
        </tr>
 
        <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/nums1#i">i</a></td>
        </tr>
@@ -11560,16 +10489,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_constant">constant-arith</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
        </tr>
 
        <tr>
@@ -11623,16 +10542,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_constant">constant-arith</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
        </tr>
 
        <tr>
@@ -11690,16 +10599,6 @@
        </tr>
 
        <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/logic1#false">false</a></td>
        </tr>
@@ -11754,16 +10653,6 @@
        </tr>
 
        <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/set1#emptyset">emptyset</a>,
 	<a class="omsymbol" href="https://openmath.org/cd/multiset1#emptyset">emptyset</a></td>
@@ -11812,16 +10701,6 @@
        <tr>
 	<th>Class</th>
 	<td><a class="intref" href="#contm_constant">constant-arith</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
        </tr>
 
        <tr>
@@ -11877,16 +10756,6 @@
        </tr>
 
        <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/nums1#gamma">gamma</a></td>
        </tr>
@@ -11935,20 +10804,6 @@
 	<td><a class="intref" href="#contm_constant">constant-arith</a></td>
        </tr>
 
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/nums1#infinity">infinity</a></td>
-       </tr>
       </tbody>
      </table>
 
