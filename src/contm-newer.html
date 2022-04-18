@@ -2963,6 +2963,48 @@
     attribute is present, the value for the <code class="attribute">cd</code> attribute on the <code class="element">csymbol</code> should be
     determined by the <code class="attribute">definitionURL</code> value if possible. The correspondence between <code class="attribute">cd</code> and <code class="attribute">definitionURL</code> values is described <a href="#contm2_csymbol_extended"></a>.</p>
 
+
+
+
+  
+   <p>This section presents elements representing a core set of
+   mathematical operators, functions and constants.  Most are empty
+   elements, covering the subject matter of standard mathematics
+   curricula up to the level of calculus.  The remaining elements are
+   <a class="intref" href="#contm2_container">container</a> elements for
+   sets, intervals, vectors and so on.  For brevity, all elements
+   defined in this section are sometimes called <em>operator
+   elements</em>.</p>
+
+   <p>Each subsection below discusses a specific operator element,
+   beginning with a syntax table, giving the elements <a class="intref" href="#contm2_opclasses">operator class</a>.  Special case rules
+   for rewriting as Strict Markup are introduced as needed.
+   However, in most cases, the generic rewrite rules for the
+   appropriate operator class is sufficient.  In particular, unless
+   otherwise indicated, elements are to be rewritten using the
+   default <a>Rewrite: element</a>
+   rule.  Note, however, that all elements in this section must be rewritten in
+   some fashion, since they are not allowed in Strict Content markup.</p>
+
+   <p>In MathML 2, the <code class="attribute">definitionURL</code> attribute could be
+   used to redefine or modify the meaning of an operator
+   element. This use of the <code class="attribute">definitionURL</code> attribute is <a class="intref" href="#interf_deprec">deprecated</a> in MathML 3. Instead a
+   <code class="element">csymbol</code> element should be used.  In general, the value of
+   <code class="attribute">cd</code> attribute on the <code class="element">csymbol</code> will correspond to
+   the <code class="attribute">definitionURL</code> value.</p>
+
+
+
+
+
+   
+   
+
+
+
+
+
+
     <section>
      <h5 id="contm2_nary_arith">nary-arith:
      <code class="defn emptytag">&lt;plus/&gt;</code>,
@@ -3357,7 +3399,7 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary">nary-linalg</a></td>
+	<td><a class="intref" href="#contm2_nary_linalg">nary-linalg</a></td>
        </tr>
 
        <tr>
@@ -3790,7 +3832,243 @@
           <p>Matrix rows are not directly rendered by themselves outside of the
      context of a matrix.</p>
 
-      </section>
+    </section>
+
+
+    
+    <section>
+       <h5 id="contm2_nary_construct">nary-constructor:
+       <code class="defn starttag">&lt;set/&gt;</code>,
+       <code class="defn startttag">&lt;list/&gt;</code>
+       </h5>
+
+
+
+     <p>The <code class="element">set</code> represents a function which constructs
+     mathematical sets from its arguments. It is an n-ary function. The
+     members of the set to be constructed may be given explicitly as
+     child elements of the constructor, or specified by rule as described
+     in <a href="#contm2_container_constructor"></a>.  There is no implied ordering to
+     the elements of a set.</p>
+
+     <div id="set1.set.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;set&gt;
+           &lt;ci&gt;a&lt;/ci&gt;&lt;ci&gt;b&lt;/ci&gt;&lt;ci&gt;c&lt;/ci&gt;
+         &lt;/set&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;{&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo&gt;}&lt;/mo&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-set-ex1.gif" alt="{\left.\middle\{a,b,c\middle\}\right.}"></img></p>
+      </blockquote>
+     </div>
+
+     <p>In general, a set can be constructed by providing a function and a domain of
+     application.  The elements of the set correspond to the values obtained by evaluating
+     the function at the points of the domain.</p>
+
+     <div id="set1.suchthat.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;set&gt;
+           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;condition&gt;
+             &lt;apply&gt;&lt;lt/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;cn&gt;5&lt;/cn&gt;&lt;/apply&gt;
+           &lt;/condition&gt;
+           &lt;ci&gt;x&lt;/ci&gt;
+         &lt;/set&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;{&lt;/mo&gt;
+           &lt;mi&gt;x&lt;/mi&gt;
+           &lt;mo&gt;|&lt;/mo&gt;
+           &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;lt;&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;/mrow&gt;
+           &lt;mo&gt;}&lt;/mo&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-suchthat-ex1.gif" alt="{\left.\middle\{x\middle|{x\lt{5}}\middle\}\right.}"></img></p>
+      </blockquote>
+     </div>
+
+     <div id="set1.suchthat.ex2" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;set&gt;
+           &lt;bvar&gt;&lt;ci type="set"&gt;S&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;condition&gt;
+             &lt;apply&gt;&lt;in/&gt;&lt;ci&gt;S&lt;/ci&gt;&lt;ci type="list"&gt;T&lt;/ci&gt;&lt;/apply&gt;
+           &lt;/condition&gt;
+           &lt;ci&gt;S&lt;/ci&gt;
+         &lt;/set&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;{&lt;/mo&gt;
+           &lt;mi&gt;S&lt;/mi&gt;
+           &lt;mo&gt;|&lt;/mo&gt;
+           &lt;mrow&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo&gt;&amp;#x2208;&lt;/mo&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;/mrow&gt;
+           &lt;mo&gt;}&lt;/mo&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-suchthat-ex2.gif" alt="{\left.\middle\{S\middle|{S\unicode{8712}T}\middle\}\right.}"></img></p>
+      </blockquote>
+     </div>
+
+     <div id="set1.suchthat.ex3" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;set&gt;
+           &lt;bvar&gt;&lt;ci&gt; x &lt;/ci&gt;&lt;/bvar&gt;
+           &lt;condition&gt;
+             &lt;apply&gt;&lt;and/&gt;
+               &lt;apply&gt;&lt;lt/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;cn&gt;5&lt;/cn&gt;&lt;/apply&gt;
+               &lt;apply&gt;&lt;in/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;naturalnumbers/&gt;&lt;/apply&gt;
+             &lt;/apply&gt;
+           &lt;/condition&gt;
+           &lt;ci&gt;x&lt;/ci&gt;
+         &lt;/set&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;{&lt;/mo&gt;
+           &lt;mi&gt;x&lt;/mi&gt;
+           &lt;mo&gt;|&lt;/mo&gt;
+           &lt;mrow&gt;
+             &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;lt;&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
+             &lt;mo&gt;&amp;#x2227;&lt;/mo&gt;
+             &lt;mrow&gt;
+               &lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x2208;&lt;/mo&gt;&lt;mi mathvariant="double-struck"&gt;N&lt;/mi&gt;
+             &lt;/mrow&gt;
+           &lt;/mrow&gt;
+           &lt;mo&gt;}&lt;/mo&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-suchthat-ex3.gif" alt="{\left.\middle\{x\middle|{{\left.\middle(x\lt{5}\middle)\right.}\unicode{8743}{x\unicode{8712}{\midoublestruck{N}}}}\middle\}\right.}"></img></p>
+      </blockquote>
+     </div>
+
+
+     
+     <p>The <code class="element">list</code> elements represents the n-ary function which
+     constructs a list from its arguments. Lists differ from sets in that
+     there is an explicit order to the elements.</p>
+
+     <p>The list entries and order may be given explicitly.</p>
+
+     <div id="list1.list.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;list&gt;
+           &lt;ci&gt;a&lt;/ci&gt;&lt;ci&gt;b&lt;/ci&gt;&lt;ci&gt;c&lt;/ci&gt;
+         &lt;/list&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/list1-list-ex1.gif" alt="{\left.\middle(a,b,c\middle)\right.}"></img></p>
+      </blockquote>
+     </div>
+
+     <p>In general a list can be constructed by providing a function and
+     a domain of application.  The elements of the list correspond to the
+     values obtained by evaluating the function at the points of the
+     domain. When this method is used, the ordering of the list elements
+     may not be clear, so the kind of ordering may be specified by the
+     <code class="attribute">order</code> attribute.  Two orders are supported: lexicographic
+     and numeric.</p>
+
+     <div id="list1.suchthat.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;list order="numeric"&gt;
+           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;condition&gt;
+             &lt;apply&gt;&lt;lt/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;cn&gt;5&lt;/cn&gt;&lt;/apply&gt;
+           &lt;/condition&gt;
+         &lt;/list&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;(&lt;/mo&gt;
+           &lt;mi&gt;x&lt;/mi&gt;
+           &lt;mo&gt;|&lt;/mo&gt;
+           &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;lt;&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;/mrow&gt;
+           &lt;mo&gt;)&lt;/mo&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/list1-suchthat-ex1.gif" alt="{\left.\middle(x\middle|{x\lt{5}}\middle)\right.}"></img></p>
+      </blockquote>
+     </div>
+
+    </section>
+    
     <section>
      <h5 id="contm2_nary_reln">nary-reln:
        <code class="defn emptytag">&lt;eq/&gt;</code>,
@@ -4828,6 +5106,63 @@
 
     </section>
 
+    <section>
+     <h5 id="contm2_unary_logical">unary-logical:
+     <code class="defn emptytag">&lt;not/&gt;</code>
+     </h5>
+          <table class="syntax data">
+
+      <tbody>
+
+       <tr>
+	<th>Class</th>
+	<td><a class="intref" href="#contm2_unary_logical">unary-logical</a></td>
+       </tr>
+
+       <tr>
+	<th>Attributes</th>
+	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
+       </tr>
+
+       <tr>
+	<th>Content</th>
+	<td>Empty</td>
+       </tr>
+
+       <tr>
+	<th>OM Symbols</th>
+	<td><a class="omsymbol" href="https://openmath.org/cd/logic1#not">not</a></td>
+       </tr>
+      </tbody>
+     </table>
+
+     <p>The <span><code class="element">not</code></span> element represents the logical not function
+     which takes one Boolean argument, and returns the opposite Boolean
+     value.</p>
+
+     <div id="logic1.not.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;not/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mo&gt;&amp;#xac;&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/logic1-not-ex1.gif" alt="{\unicode{172}a}"></img></p>
+      </blockquote>
+     </div>
+
+    </section>
         <section>
 	 <h5 id="contm2_binary_reln">binary-reln:
      <code class="defn emptytag">&lt;neq/&gt;</code>,
@@ -5051,7 +5386,7 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm2_binary">binary-arith</a></td>
+	<td><a class="intref" href="#contm2_binary_linalg">binary-linalg</a></td>
        </tr>
 
        <tr>
@@ -5066,7 +5401,7 @@
 
        <tr>
 	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/integer1#quotient">quotient</a></td>
+	<td><a class="omsymbol" href="https://openmath.org/cd/linalg1#vectorproduct">vectorproduct</a></td>
        </tr>
       </tbody>
      </table>
@@ -5080,13 +5415,137 @@
 
 
 
+     <p>This element represents the vector product. It takes two three-dimensional vector
+     arguments
+     and represents as value a three-dimensional vector.</p>
+
+     <div id="linalg1.vectorproduct.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;eq/&gt;
+           &lt;apply&gt;&lt;vectorproduct/&gt;
+             &lt;ci type="vector"&gt; A &lt;/ci&gt;
+             &lt;ci type="vector"&gt; B &lt;/ci&gt;
+           &lt;/apply&gt;
+           &lt;apply&gt;&lt;times/&gt;
+             &lt;ci&gt;a&lt;/ci&gt;
+             &lt;ci&gt;b&lt;/ci&gt;
+             &lt;apply&gt;&lt;sin/&gt;&lt;ci&gt;&amp;#x3b8;&lt;/ci&gt;&lt;/apply&gt;
+             &lt;ci type="vector"&gt; N &lt;/ci&gt;
+           &lt;/apply&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#xd7;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
+           &lt;mo&gt;=&lt;/mo&gt;
+           &lt;mrow&gt;
+             &lt;mi&gt;a&lt;/mi&gt;
+             &lt;mo&gt;&amp;#x2062;&lt;/mo&gt;
+             &lt;mi&gt;b&lt;/mi&gt;
+             &lt;mo&gt;&amp;#x2062;&lt;/mo&gt;
+             &lt;mrow&gt;&lt;mi&gt;sin&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;&amp;#x3b8;&lt;/mi&gt;&lt;/mrow&gt;
+             &lt;mo&gt;&amp;#x2062;&lt;/mo&gt;
+             &lt;mi&gt;N&lt;/mi&gt;
+           &lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/linalg1-vectorproduct-ex1.gif" alt="{{A\unicode{215}B}={a\unicode{8290}b\unicode{8290}{\mathop{{\minormal{sin}}}\unicode{952}}\unicode{8290}N}}"></img></p>
+      </blockquote>
+     </div>
+
+      <p>This element represents the scalar product function. It takes two vector arguments
+
+     and returns a scalar value.</p>
+
+     <div id="linalg1.scalarproduct.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;eq/&gt;
+           &lt;apply&gt;&lt;scalarproduct/&gt;
+             &lt;ci type="vector"&gt;A&lt;/ci&gt;
+             &lt;ci type="vector"&gt;B&lt;/ci&gt;
+           &lt;/apply&gt;
+           &lt;apply&gt;&lt;times/&gt;
+             &lt;ci&gt;a&lt;/ci&gt;
+             &lt;ci&gt;b&lt;/ci&gt;
+             &lt;apply&gt;&lt;cos/&gt;&lt;ci&gt;&amp;#x3b8;&lt;/ci&gt;&lt;/apply&gt;
+           &lt;/apply&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;.&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
+           &lt;mo&gt;=&lt;/mo&gt;
+           &lt;mrow&gt;
+             &lt;mi&gt;a&lt;/mi&gt;
+             &lt;mo&gt;&amp;#x2062;&lt;/mo&gt;
+             &lt;mi&gt;b&lt;/mi&gt;
+             &lt;mo&gt;&amp;#x2062;&lt;/mo&gt;
+             &lt;mrow&gt;&lt;mi&gt;cos&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;&amp;#x3b8;&lt;/mi&gt;&lt;/mrow&gt;
+           &lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/linalg1-scalarproduct-ex1.gif" alt="{{A.B}={a\unicode{8290}b\unicode{8290}{\mathop{{\minormal{cos}}}\unicode{952}}}}"></img></p>
+      </blockquote>
+     </div>
+    
+     <p>This element represents the outer product function. It takes two vector arguments
+
+     and returns as value a matrix.</p>
+
+     <div id="linalg1.outerproduct.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;outerproduct/&gt;
+           &lt;ci type="vector"&gt;A&lt;/ci&gt;
+           &lt;ci type="vector"&gt;B&lt;/ci&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2297;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/linalg1-outerproduct-ex1.gif" alt="{A\unicode{8855}B}"></img></p>
+      </blockquote>
+     </div>
+
 	    </section>
 
 	        <section>
 		 <h5 id="contm2_binary_set">binary-set:
      <code class="defn emptytag">&lt;in/&gt;</code>,
      <code class="defn emptytag">&lt;notin/&gt;</code>,
-     <code class="defn emptytag">&lt;nosubset/&gt;</code>,
+     <code class="defn emptytag">&lt;notsubset/&gt;</code>,
      <code class="defn emptytag">&lt;notprsubset/&gt;</code>,
      <code class="defn emptytag">&lt;setdiff/&gt;</code>
 		 </h5>
@@ -5097,7 +5556,7 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm2_binary">binary-arith</a></td>
+	<td><a class="intref" href="#contm2_binary_set">binary-set</a></td>
        </tr>
 
        <tr>
@@ -5112,7 +5571,7 @@
 
        <tr>
 	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/integer1#quotient">quotient</a></td>
+	<td><a class="omsymbol" href="https://openmath.org/cd/set1#in">in</a></td>
        </tr>
       </tbody>
      </table>
@@ -5125,6 +5584,148 @@
      used depends on the type element as described in <a href="#contm2_interval"></a> </p>
 
 
+
+     <p>The <code class="element">in</code> element represents the set inclusion relation.
+     It has two arguments, an element and a set. It is used to denote
+     that the element is in the given set.</p>
+
+     <div id="set1.in.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;in/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;ci type="set"&gt;A&lt;/ci&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;&amp;#x2208;&lt;/mo&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-in-ex1.gif" alt="{a\unicode{8712}A}"></img></p>
+      </blockquote>
+     </div>
+
+
+     <p>The <code class="element">notin</code> represents the negated set inclusion
+     relation. It has two arguments, an element and a set. It is
+     used to denote that the element is not in the given set.</p>
+
+     <div id="set1.notin.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;notin/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;ci type="set"&gt;A&lt;/ci&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;&amp;#x2209;&lt;/mo&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-notin-ex1.gif" alt="{a\unicode{8713}A}"></img></p>
+      </blockquote>
+     </div>
+
+
+     <p>The <code class="element">notsubset</code> element represents the negated subset
+     relation. It is used to denote that the first argument is not a subset of the
+     second.</p>
+
+     <div id="set1.notsubset.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;notsubset/&gt;
+           &lt;ci type="set"&gt;A&lt;/ci&gt;
+           &lt;ci type="set"&gt;B&lt;/ci&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2288;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-notsubset-ex1.gif" alt="{A\unicode{8840}B}"></img></p>
+      </blockquote>
+     </div>
+
+     
+     <p>The <code class="element">notprsubset</code> element represents the negated proper
+     subset relation. It is used to denote that the first argument is not
+     a proper subset of the second.</p>
+
+     <div id="set1.notprsubset.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;notprsubset/&gt;
+           &lt;ci type="set"&gt;A&lt;/ci&gt;
+           &lt;ci type="set"&gt;B&lt;/ci&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2284;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-notprsubset-ex1.gif" alt="{A\unicode{8836}B}"></img></p>
+      </blockquote>
+     </div>
+     <p>The <code class="element">setdiff</code> element represents set difference
+     operator. It takes two sets as arguments, and denotes the set that
+     contains all the elements that occur in the first set, but not in
+     the second.</p>
+
+     <div id="set1.setdiff.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;setdiff/&gt;
+           &lt;ci type="set"&gt;A&lt;/ci&gt;
+           &lt;ci type="set"&gt;B&lt;/ci&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2216;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-setdiff-ex1.gif" alt="{A\unicode{8726}B}"></img></p>
+      </blockquote>
+     </div>
 
     </section>
 
@@ -5590,15 +6191,15 @@
     </section>
 
     <section>
-     <h5 id="contm2_unary_funcional">unary-functional:
+     <h5 id="contm2_unary_functional">unary-functional:
      <code class="defn emptytag">&lt;inverse/&gt;</code>,
      <code class="defn emptytag">&lt;ident/&gt;</code>,
      <code class="defn emptytag">&lt;domain/&gt;</code>,
      <code class="defn emptytag">&lt;codomain/&gt;</code>,
      <code class="defn emptytag">&lt;image/&gt;</code>,
      <code class="defn emptytag">&lt;ln/&gt;</code>,
-     <code class="defn emptytag">&lt;log/&gt;</code>,
-     <code class="defn emptytag">&lt;moment/&gt;</code>
+     <code class="defn emptytag">&lt;log/&gt;</code><!--,
+     <code class="defn emptytag">&lt;moment/&gt;</code>-->
      </h5>
 
      <table class="syntax data">
@@ -5607,7 +6208,7 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-arith</a></td>
+	<td><a class="intref" href="#contm2_unary_functional">unary-functional</a></td>
        </tr>
 
        <tr>
@@ -5622,7 +6223,7 @@
 
        <tr>
 	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/integer1#factorial">factorial</a></td>
+	<td><a class="omsymbol" href="https://openmath.org/cd/fns1#inverse">inverse</a></td>
        </tr>
       </tbody>
      </table>
@@ -5632,12 +6233,244 @@
 
 
 
+     <p>The <code class="element">inverse</code> element is applied to a function in order to
+     construct a generic expression for the functional inverse of that
+     function. The <code class="element">inverse</code> element may either be applied to
+     arguments, or it may appear alone, in which case it represents an
+     abstract inversion operator acting on other functions.</p>
+
+     <div id="fns1.inverse.ex1" class="mathml-example">
+
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;inverse/&gt;
+           &lt;ci&gt; f &lt;/ci&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;msup&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mn&gt;-1&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msup&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/fns1-inverse-ex1.gif" alt="{\msup{f}{{\left.\middle({\mn{-1}}\middle)\right.}}}"></img></p>
+      </blockquote>
+     </div>
+
+     <div id="fns1.inverse.ex2" class="mathml-example">
+
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;
+           &lt;apply&gt;&lt;inverse/&gt;&lt;ci type="matrix"&gt;A&lt;/ci&gt;&lt;/apply&gt;
+           &lt;ci&gt;a&lt;/ci&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;msup&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mn&gt;-1&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msup&gt;
+           &lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
+           &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/fns1-inverse-ex2.gif" alt="{\msup{A}{{\left.\middle({\mn{-1}}\middle)\right.}}\unicode{8289}{\left(a\right)}}"></img></p>
+      </blockquote>
+     </div>
+
+     <p>The <code class="element">ident</code> element represents the
+     identity function. Note that MathML makes no assumption about the
+     domain and codomain of the represented identity function, which
+     depends on the context in which it is used.</p>
+
+     <div id="fns1.ident.ex1" class="mathml-example">
+
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;eq/&gt;
+           &lt;apply&gt;&lt;compose/&gt;
+             &lt;ci type="function"&gt;f&lt;/ci&gt;
+             &lt;apply&gt;&lt;inverse/&gt;
+               &lt;ci type="function"&gt;f&lt;/ci&gt;
+             &lt;/apply&gt;
+           &lt;/apply&gt;
+           &lt;ident/&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mrow&gt;
+             &lt;mi&gt;f&lt;/mi&gt;
+             &lt;mo&gt;&amp;#x2218;&lt;/mo&gt;
+             &lt;msup&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mn&gt;-1&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msup&gt;
+           &lt;/mrow&gt;
+           &lt;mo&gt;=&lt;/mo&gt;
+           &lt;mi&gt;id&lt;/mi&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/fns1-ident-ex1.gif" alt="{{f\unicode{8728}\msup{f}{{\left.\middle({\mn{-1}}\middle)\right.}}}={\minormal{id}}}"></img></p>
+      </blockquote>
+     </div>
+
+     <p>The <code class="element">domain</code> element represents the domain of the
+     function to which it is applied.  The domain is the set of values
+     over which the function is defined.</p>
+
+     <div id="fns1.domain.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;eq/&gt;
+           &lt;apply&gt;&lt;domain/&gt;&lt;ci&gt;f&lt;/ci&gt;&lt;/apply&gt;
+           &lt;reals/&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mrow&gt;&lt;mi&gt;domain&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
+           &lt;mo&gt;=&lt;/mo&gt;
+           &lt;mi mathvariant="double-struck"&gt;R&lt;/mi&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/fns1-domain-ex1.gif" alt="{{\mathop{{\minormal{domain}}}{\left(f\right)}}={\midoublestruck{R}}}"></img></p>
+      </blockquote>
+     </div>
+
+     <p>The <code class="element">codomain</code> represents the codomain, or range, of the function
+     to which is is applied.  Note that the codomain is not necessarily
+     equal to the image of the function, it is merely required to contain
+     the image.</p>
+
+     <div id="fns1.range.ex1" class="mathml-example">
+
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;eq/&gt;
+           &lt;apply&gt;&lt;codomain/&gt;&lt;ci&gt;f&lt;/ci&gt;&lt;/apply&gt;
+           &lt;rationals/&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mrow&gt;&lt;mi&gt;codomain&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
+           &lt;mo&gt;=&lt;/mo&gt;
+           &lt;mi mathvariant="double-struck"&gt;Q&lt;/mi&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/fns1-range-ex1.gif" alt="{{\mathop{{\minormal{codomain}}}{\left(f\right)}}={\midoublestruck{Q}}}"></img></p>
+      </blockquote>
+     </div>
+
+     
+     <p>The <code class="element">image</code> element represent the image of
+     the function to which it is applied. The image of a function is the
+     set of values taken by the function. Every point in the image is
+     generated by the function applied to some point of the domain.</p>
+
+     <div id="fns1.image.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;eq/&gt;
+           &lt;apply&gt;&lt;image/&gt;&lt;sin/&gt;&lt;/apply&gt;
+           &lt;interval&gt;&lt;cn&gt;-1&lt;/cn&gt;&lt;cn&gt; 1&lt;/cn&gt;&lt;/interval&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mrow&gt;&lt;mi&gt;image&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;sin&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
+           &lt;mo&gt;=&lt;/mo&gt;
+           &lt;mrow&gt;&lt;mo&gt;[&lt;/mo&gt;&lt;mn&gt;-1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;]&lt;/mo&gt;&lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/fns1-image-ex1.gif" alt="{{\mathop{{\minormal{image}}}{\left({\minormal{sin}}\right)}}={\left[{\mn{-1}},{1}\right]}}"></img></p>
+      </blockquote>
+     </div>
+
+     <p>The <code class="element">ln</code> element represents the natural logarithm function.</p>
+
+     <div id="transc1.ln.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;ln/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;ln&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/transc1-ln-ex1.gif" alt="{\mathop{{\minormal{ln}}}a}"></img></p>
+      </blockquote>
+     </div>
+
     </section>
 
-        <section>
-	 <h5 id="contm2_unary_set">unary-set:
-     <code class="defn emptytag">&lt;card/&gt;</code>
-	 </h5>
+    
+    <section>
+     <h5 id="contm2_moment">Moment <code class="defn emptytag">&lt;moment/&gt;</code>, <code class="defn starttag">&lt;momentabout&gt;</code></h5>
+
 
      <table class="syntax data">
 
@@ -5645,7 +6478,216 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-arith</a></td>
+	<td><a class="intref" href="#contm2_unary_functional">unary-functional</a></td>
+       </tr>
+
+       <tr>
+	<th>Attributes</th>
+	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
+       </tr>
+
+       <tr>
+	<th>Content</th>
+	<td>Empty</td>
+       </tr>
+
+       <tr>
+	<th>Qualifiers</th>
+	<td><code class="parsing_ref">degree</code>,
+	<code class="parsing_ref">momentabout</code></td>
+       </tr>
+
+       <tr>
+	<th>OM Symbols</th>
+	<td><a class="omsymbol" href="https://openmath.org/cd/s_data1#moment">moment</a>,
+	<a class="omsymbol" href="https://openmath.org/cd/s_dist1#moment">moment</a></td>
+       </tr>
+      </tbody>
+     </table>
+
+
+     <p>The <code class="element">moment</code> element is used to denote the <i class="var">i</i>th moment of a set of data set or
+     random variable. The <code class="element">moment</code> function accepts the <code class="element">degree</code> and
+     <code class="element">momentabout</code> qualifiers. If present, the <code class="element">degree</code> schema denotes the order of
+     the moment. Otherwise, the moment is assumed to be the first order moment. When used
+     with
+     <code class="element">moment</code>, the <code class="element">degree</code> schema is expected to contain a
+     single child. If present, the <code class="element">momentabout</code> schema denotes the
+     point about which the moment is taken. Otherwise, the moment is
+     assumed to be the moment about zero.</p>
+
+     <div id="s_data1.moment.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;moment/&gt;
+           &lt;degree&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;/degree&gt;
+           &lt;momentabout&gt;&lt;mean/&gt;&lt;/momentabout&gt;
+           &lt;cn&gt;6&lt;/cn&gt;&lt;cn&gt;4&lt;/cn&gt;&lt;cn&gt;2&lt;/cn&gt;&lt;cn&gt;2&lt;/cn&gt;&lt;cn&gt;5&lt;/cn&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;msub&gt;
+           &lt;mrow&gt;
+             &lt;mo&gt;&amp;#x27E8;&lt;/mo&gt;
+             &lt;msup&gt;
+               &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mn&gt;6&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
+               &lt;mn&gt;3&lt;/mn&gt;
+             &lt;/msup&gt;
+             &lt;mo&gt;&amp;#x27E9;&lt;/mo&gt;
+           &lt;/mrow&gt;
+           &lt;mi&gt;mean&lt;/mi&gt;
+         &lt;/msub&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/s_data1-moment-ex1.gif" alt="\msub{{\unicode{9001}\msup{{\left({6},{4},{2},{2},{5}\right)}}{{3}}\unicode{9002}}}{{\minormal{mean}}}"></img></p>
+      </blockquote>
+     </div>
+
+     <div id="s_dist1.moment.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;moment/&gt;
+           &lt;degree&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;/degree&gt;
+           &lt;momentabout&gt;&lt;ci&gt;p&lt;/ci&gt;&lt;/momentabout&gt;
+           &lt;ci&gt;X&lt;/ci&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;msub&gt;
+           &lt;mrow&gt;
+             &lt;mo&gt;&amp;#x27E8;&lt;/mo&gt;
+             &lt;msup&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;
+             &lt;mo&gt;&amp;#x27E9;&lt;/mo&gt;
+           &lt;/mrow&gt;
+           &lt;mi&gt;p&lt;/mi&gt;
+         &lt;/msub&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/s_dist1-moment-ex1.gif" alt="\msub{{\unicode{9001}\msup{X}{{3}}\unicode{9002}}}{p}"></img></p>
+      </blockquote>
+     </div>
+    </section>
+
+        <section>
+     <h5 id="contm2_log">Logarithm <code class="defn emptytag">&lt;log/&gt;</code>
+     <span>, <code class="defn starttag">&lt;logbase&gt;</code></span>
+     </h5>
+
+     <table class="syntax data">
+
+      <tbody>
+
+       <tr>
+	<th>Class</th>
+	<td><a class="intref" href="#contm_unary">unary-functional</a></td>
+       </tr>
+
+       <tr>
+	<th>Attributes</th>
+	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
+       </tr>
+
+       <tr>
+	<th>Content</th>
+	<td>Empty</td>
+       </tr>
+
+       <tr>
+	<th>Qualifiers</th>
+	<td><code class="parsing_ref">logbase</code></td>
+       </tr>
+
+       <tr>
+	<th>OM Symbols</th>
+	<td><a class="omsymbol" href="https://openmath.org/cd/transc1#log">log</a></td>
+       </tr>
+      </tbody>
+     </table>
+
+
+     <p>The <code class="element">log</code> elements represents the logarithm function
+     relative to a given base.  When present, the <code class="element">logbase</code>
+     qualifier specifies the base. Otherwise, the base is assumed to be 10.
+     <code class="element">apply</code>.</p>
+
+     <div id="transc1.log.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;log/&gt;
+           &lt;logbase&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;/logbase&gt;
+           &lt;ci&gt;x&lt;/ci&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/transc1-log-ex1.gif" alt="{\msub{{\minormal{log}}}{{3}}\unicode{8289}x}"></img></p>
+      </blockquote>
+     </div>
+
+     <div id="transc1.log.ex2" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;log/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/transc1-log-ex2.gif" alt="{\mathop{{\minormal{log}}}x}"></img></p>
+      </blockquote>
+     </div>
+    </section>
+        <section>
+	 <h5 id="contm2_unary_set">unary-set:
+     <code class="defn emptytag">&lt;card/&gt;</code>
+	 </h5>
+
+
+     <table class="syntax data">
+
+      <tbody>
+
+       <tr>
+	<th>Class</th>
+	<td><a class="intref" href="#contm2_unary_set">unary-set</a></td>
        </tr>
 
        <tr>
@@ -5660,15 +6702,50 @@
 
        <tr>
 	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/integer1#factorial">factorial</a></td>
+	<td><a class="omsymbol" href="https://openmath.org/cd/set1#size">size</a>, <a class="omsymbol" href="https://openmath.org/cd/multiset1#size">size</a></td>
        </tr>
       </tbody>
      </table>
+
 
      <p>Unary operators take a single argument and map to OpenMath symbols
      via <a>Rewrite: element</a> without the need of any special rewrite rules.</p>
 
 
+
+     <p>The <code class="element">card</code> element represents the cardinality function,
+     which takes a set argument and returns its cardinality, i.e. the
+     number of elements in the set.  The cardinality of a set is a
+     non-negative integer, or an infinite cardinal number.</p>
+
+     <div id="set1.size.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;eq/&gt;
+           &lt;apply&gt;&lt;card/&gt;&lt;ci&gt;A&lt;/ci&gt;&lt;/apply&gt;
+           &lt;cn&gt;5&lt;/cn&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mrow&gt;&lt;mo&gt;|&lt;/mo&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;|&lt;/mo&gt;&lt;/mrow&gt;
+           &lt;mo&gt;=&lt;/mo&gt;
+           &lt;mn&gt;5&lt;/mn&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-size-ex1.gif" alt="{{\left.\middle|A\middle|\right.}={5}}"></img></p>
+      </blockquote>
+     </div>
 
 	</section>
 
@@ -5706,7 +6783,7 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-elementary</a></td>
+	<td><a class="intref" href="#contm2_unary_elementary">unary-elementary</a></td>
        </tr>
 
        <tr>
@@ -5929,13 +7006,346 @@
 
        <tr>
 	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/integer1#factorial">factorial</a></td>
+	<td><a class="omsymbol" href="https://openmath.org/cd/veccalc1#divergence">divergence</a></td>
        </tr>
       </tbody>
      </table>
 
      <p>Unary operators take a single argument and map to OpenMath symbols
      via <a>Rewrite: element</a> without the need of any special rewrite rules.</p>
+
+     <p>The <code class="element">divergence</code> element is the vector calculus divergence
+     operator, often called div. It represents the divergence function
+     which takes one argument which should be a vector of scalar-valued
+     functions, intended to represent a vector-valued function, and returns
+     the scalar-valued function giving the divergence of the argument.</p>
+
+     <div id="veccalc1.divergence.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;divergence/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;div&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/veccalc1-divergence-ex1.gif" alt="{\mathop{{\minormal{div}}}{\left(a\right)}}"></img></p>
+      </blockquote>
+     </div>
+
+     <div id="veccalc1.divergence.ex2" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;divergence/&gt;
+           &lt;ci type="vector"&gt;E&lt;/ci&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;div&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/veccalc1-divergence-ex2.gif" alt="{\mathop{{\minormal{div}}}{\left(E\right)}}"></img></p>
+      </blockquote>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mo&gt;&amp;#x2207;&lt;/mo&gt;&lt;mo&gt;&amp;#x22c5;&lt;/mo&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/veccalc1-divergence-ex2-2.gif" alt="{\unicode{8711}\unicode{8901}E}"></img></p>
+      </blockquote>
+
+     </div>
+
+     <p>The functions defining the coordinates may be defined implicitly as expressions defined
+     in terms of the coordinate names, in which case the coordinate names must be provided
+     as
+     bound variables.</p>
+
+     <div id="veccalc1.divergence.ex3" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;divergence/&gt;
+           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;bvar&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;bvar&gt;&lt;ci&gt;z&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;vector&gt;
+             &lt;apply&gt;&lt;plus/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/apply&gt;
+             &lt;apply&gt;&lt;plus/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci&gt;z&lt;/ci&gt;&lt;/apply&gt;
+             &lt;apply&gt;&lt;plus/&gt;&lt;ci&gt;z&lt;/ci&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/apply&gt;
+           &lt;/vector&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mi&gt;div&lt;/mi&gt;
+           &lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
+           &lt;mo&gt;(&lt;/mo&gt;
+           &lt;mtable&gt;
+             &lt;mtr&gt;&lt;mtd&gt;
+               &lt;mi&gt;x&lt;/mi&gt;
+               &lt;mo&gt;&amp;#x21a6;&lt;/mo&gt;
+               &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;/mrow&gt;
+             &lt;/mtd&gt;&lt;/mtr&gt;
+             &lt;mtr&gt;&lt;mtd&gt;
+               &lt;mi&gt;y&lt;/mi&gt;
+               &lt;mo&gt;&amp;#x21a6;&lt;/mo&gt;
+               &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;/mrow&gt;
+             &lt;/mtd&gt;&lt;/mtr&gt;
+             &lt;mtr&gt;&lt;mtd&gt;
+               &lt;mi&gt;z&lt;/mi&gt;
+               &lt;mo&gt;&amp;#x21a6;&lt;/mo&gt;
+               &lt;mrow&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;/mrow&gt;
+             &lt;/mtd&gt;&lt;/mtr&gt;
+           &lt;/mtable&gt;
+           &lt;mo&gt;)&lt;/mo&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/veccalc1-divergence-ex3.gif" alt="{\left.\mathop{{\minormal{div}}}\middle({\begin{matrix}x\unicode{8614}{x+y}\\y\unicode{8614}{x+z}\\z\unicode{8614}{z+y}\end{matrix}}\middle)\right.}"></img></p>
+      </blockquote>
+
+     </div>
+
+     <p>The <code class="element">grad</code> element is the vector calculus gradient operator, often called
+     grad. It is used to represent the grad function, which takes one
+     argument which should be a scalar-valued function and returns a
+     vector of functions.</p>
+
+     <div id="veccalc1.gradient.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;grad/&gt;&lt;ci type="function"&gt;f&lt;/ci&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mi&gt;grad&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/veccalc1-gradient-ex1.gif" alt="{\mathop{{\minormal{grad}}}{\left(f\right)}}"></img></p>
+      </blockquote>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;&amp;#x2207;&lt;/mo&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
+           &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/veccalc1-gradient-ex1-2.gif" alt="{\unicode{8711}\unicode{8289}{\left(f\right)}}"></img></p>
+      </blockquote>
+
+     </div>
+
+     <p>The functions defining the coordinates may be defined implicitly as expressions
+     defined in terms of the coordinate names, in which case the coordinate names must
+     be
+     provided as bound variables.</p>
+
+     <div id="veccalc1.gradient.ex2" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;grad/&gt;
+           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;bvar&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;bvar&gt;&lt;ci&gt;z&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;apply&gt;&lt;times/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;ci&gt;z&lt;/ci&gt;&lt;/apply&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mi&gt;grad&lt;/mi&gt;
+           &lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
+           &lt;mrow&gt;
+             &lt;mo&gt;(&lt;/mo&gt;
+             &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
+             &lt;mo&gt;&amp;#x21a6;&lt;/mo&gt;
+             &lt;mrow&gt;
+               &lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x2062;&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;&amp;#x2062;&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;
+             &lt;/mrow&gt;
+             &lt;mo&gt;)&lt;/mo&gt;
+           &lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/veccalc1-gradient-ex2.gif" alt="{\mathop{{\minormal{grad}}}{\left.\middle({\left(x,y,z\right)}\unicode{8614}{x\unicode{8290}y\unicode{8290}z}\middle)\right.}}"></img></p>
+      </blockquote>
+
+     </div>
+
+     
+     <p>The <code class="element">curl</code> element is used to represent the curl function
+     of vector calculus. It takes one argument which should be a vector
+     of scalar-valued functions, intended to represent a vector-valued
+     function, and returns a vector of functions.</p>
+
+     <div id="veccalc1.curl.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;curl/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;curl&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/veccalc1-curl-ex1.gif" alt="{\mathop{{\minormal{curl}}}{\left(a\right)}}"></img></p>
+      </blockquote>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mo&gt;&amp;#x2207;&lt;/mo&gt;&lt;mo&gt;&amp;#xd7;&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/veccalc1-curl-ex1-2.gif" alt="{\unicode{8711}\unicode{215}a}"></img></p>
+      </blockquote>
+
+     </div>
+
+     <p>The functions defining the coordinates may be defined implicitly as expressions
+     defined in terms of the coordinate names, in which case the coordinate names must
+     be
+     provided as bound variables.</p>
+
+     
+     <p>The <code class="element">laplacian</code> element represents the Laplacian operator of
+     vector calculus.  The Laplacian takes a single argument which is a
+     vector of scalar-valued functions representing a vector-valued
+     function, and returns a vector of functions.</p>
+
+     <div id="veccalc1.laplacian.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;laplacian/&gt;&lt;ci type="vector"&gt;E&lt;/ci&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;msup&gt;&lt;mo&gt;&amp;#x2207;&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
+           &lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
+           &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/veccalc1-laplacian-ex1.gif" alt="{\msup{\unicode{8711}}{{2}}\unicode{8289}{\left(E\right)}}"></img></p>
+      </blockquote>
+     </div>
+
+     <p>The functions defining the coordinates may be defined implicitly as expressions
+     defined in terms of the coordinate names, in which case the coordinate names must
+     be
+     provided as bound variables.</p>
+
+     <div id="veccalc1.laplacian.ex2" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;laplacian/&gt;
+           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;bvar&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;bvar&gt;&lt;ci&gt;z&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;apply&gt;&lt;ci&gt;f&lt;/ci&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/apply&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;msup&gt;&lt;mo&gt;&amp;#x2207;&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
+           &lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
+           &lt;mrow&gt;
+             &lt;mo&gt;(&lt;/mo&gt;
+             &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
+             &lt;mo&gt;&amp;#x21a6;&lt;/mo&gt;
+             &lt;mrow&gt;
+               &lt;mi&gt;f&lt;/mi&gt;
+               &lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
+               &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
+             &lt;/mrow&gt;
+             &lt;mo&gt;)&lt;/mo&gt;
+           &lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/veccalc1-laplacian-ex2.gif" alt="{\msup{\unicode{8711}}{{2}}\unicode{8289}{\left.\middle({\left(x,y,z\right)}\unicode{8614}{\mathop{f}{\left(x,y\right)}}\middle)\right.}}"></img></p>
+      </blockquote>
+
+     </div>
 
 
 
@@ -6495,14 +7905,8 @@
 
     <section>
      <h5 id="contm2_quantifier">quantifier:
-     <code class="defn emptytag">&lt;domainofapplication/&gt;</code>,
-     <code class="defn emptytag">&lt;condition/&gt;</code>,
-     <code class="defn emptytag">&lt;interval/&gt;</code>,
-     <code class="defn emptytag">&lt;lowlimit/&gt;</code>,
-     <code class="defn emptytag">&lt;uplimit/&gt;</code>,
-     <code class="defn emptytag">&lt;degree/&gt;</code>,
-     <code class="defn emptytag">&lt;momentabout/&gt;</code>,
-     <code class="defn emptytag">&lt;logbase/&gt;</code>
+     <code class="defn emptytag">&lt;forall/&gt;</code>,
+     <code class="defn emptytag">&lt;exists/&gt;</code>,
      </h5>
      <table class="syntax data">
 
@@ -6536,12 +7940,170 @@
       </tbody>
      </table>
 
-     <p>The Quantifier class is used for the forall and exists quantifiers
-     of predicate calculus.</p>
+    
+     <p>The <code class="element">forall</code> element represents the universal ("for all")
+     quantifier which takes one or more bound variables, and an
+     argument which specifies the assertion being quantified.
+     In addition, <code class="element">condition</code> or other qualifiers may be used as
+     described in <a href="#contm2_quantifier"></a> to limit the domain
+     of the bound variables.</p>
 
+     <div id="quant1.forall.ex1" class="mathml-example">
+      <p>Content MathML</p>
 
-      <p>The elements representing quantifiers are
-      specified in the schema pattern <code class="parsing_ref">quantifier.class</code>.</p>
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;bind&gt;&lt;forall/&gt;
+           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;apply&gt;&lt;eq/&gt;
+             &lt;apply&gt;&lt;minus/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/apply&gt;
+             &lt;cn&gt;0&lt;/cn&gt;
+           &lt;/apply&gt;
+         &lt;/bind&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;&amp;#x2200;&lt;/mo&gt;
+           &lt;mi&gt;x&lt;/mi&gt;
+           &lt;mo&gt;.&lt;/mo&gt;
+           &lt;mrow&gt;
+	    &lt;mo&gt;(&lt;/mo&gt;
+             &lt;mrow&gt;
+               &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;
+               &lt;mo&gt;=&lt;/mo&gt;
+               &lt;mn&gt;0&lt;/mn&gt;
+             &lt;/mrow&gt;
+	     &lt;mo&gt;)&lt;/mo&gt;
+           &lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/quant1-forall-ex1.gif" alt="{\unicode{8704}x.{\left({{x\unicode{8722}x}={0}}\right)}}"></img></p>
+      </blockquote>
+     </div>
+
+     <p>The <code class="element">exists</code> element represents the existential ("there exists")
+     quantifier which takes one or more bound variables, and an
+     argument which specifies the assertion being quantified. In
+     addition, <code class="element">condition</code> or other qualifiers may be used as
+     described in <a href="#contm2_quantifier"></a> to limit the domain
+     of the bound variables.</p>
+
+     <div id="quant1.exists.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;bind&gt;&lt;exists/&gt;
+           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;apply&gt;&lt;eq/&gt;
+             &lt;apply&gt;&lt;ci&gt;f&lt;/ci&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/apply&gt;
+             &lt;cn&gt;0&lt;/cn&gt;
+           &lt;/apply&gt;
+         &lt;/bind&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;&amp;#x2203;&lt;/mo&gt;
+           &lt;mi&gt;x&lt;/mi&gt;
+           &lt;mo&gt;.&lt;/mo&gt;
+           &lt;mrow&gt;
+	    &lt;mo&gt;(&lt;/mo&gt;
+             &lt;mrow&gt;
+               &lt;mrow&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
+               &lt;mo&gt;=&lt;/mo&gt;
+               &lt;mn&gt;0&lt;/mn&gt;
+             &lt;/mrow&gt;
+	     &lt;mo&gt;)&lt;/mo&gt;
+           &lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/quant1-exists-ex1.gif" alt="{\unicode{8707}x.{\left({{\mathop{f}{\left(x\right)}}={0}}\right)}}"></img></p>
+      </blockquote>
+     </div>
+
+     <div id="quant1.exists.ex2" class="mathml-example">
+
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;exists/&gt;
+           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;domainofapplication&gt;
+             &lt;integers/&gt;
+           &lt;/domainofapplication&gt;
+           &lt;apply&gt;&lt;eq/&gt;
+             &lt;apply&gt;&lt;ci&gt;f&lt;/ci&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/apply&gt;
+             &lt;cn&gt;0&lt;/cn&gt;
+           &lt;/apply&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Strict MathML equivalent:</p>
+
+      <div class="example strict-mathml">
+       <pre>
+         &lt;bind&gt;&lt;csymbol cd="quant1"&gt;exists&lt;/csymbol&gt;
+           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;apply&gt;&lt;csymbol cd="logic1"&gt;and&lt;/csymbol&gt;
+             &lt;apply&gt;&lt;csymbol cd="set1"&gt;in&lt;/csymbol&gt;
+               &lt;ci&gt;x&lt;/ci&gt;
+               &lt;csymbol cd="setname1"&gt;Z&lt;/csymbol&gt;
+             &lt;/apply&gt;
+             &lt;apply&gt;&lt;csymbol cd="relation1"&gt;eq&lt;/csymbol&gt;
+               &lt;apply&gt;&lt;ci&gt;f&lt;/ci&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/apply&gt;
+               &lt;cn&gt;0&lt;/cn&gt;
+             &lt;/apply&gt;
+           &lt;/apply&gt;
+         &lt;/bind&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;&amp;#x2203;&lt;/mo&gt;
+           &lt;mi&gt;x&lt;/mi&gt;
+           &lt;mo&gt;.&lt;/mo&gt;
+           &lt;mrow&gt;
+	    &lt;mo&gt;(&lt;/mo&gt;
+             &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x2208;&lt;/mo&gt;&lt;mi mathvariant="double-struck"&gt;Z&lt;/mi&gt;&lt;/mrow&gt;
+             &lt;mo&gt;&amp;#x2227;&lt;/mo&gt;
+             &lt;mrow&gt;
+               &lt;mrow&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
+               &lt;mo&gt;=&lt;/mo&gt;
+               &lt;mn&gt;0&lt;/mn&gt;
+             &lt;/mrow&gt;
+	     &lt;mo&gt;)&lt;/mo&gt;
+	   &lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/quant1-exists-ex2.gif" alt="{\unicode{8707}x.{\left({x\unicode{8712}{\midoublestruck{Z}}}\unicode{8743}{{\mathop{f}{\left(x\right)}}={0}}\right)}}"></img></p>
+      </blockquote>
+
+     </div>
 
     </section>
 
@@ -7713,331 +9275,7 @@
     
 
    </section>
-  </section>
-
-  <section>
-   <h3 id="contm2_opel">Content MathML for Specific Operators and Constants</h3>
-
-   <p>This section presents elements representing a core set of
-   mathematical operators, functions and constants.  Most are empty
-   elements, covering the subject matter of standard mathematics
-   curricula up to the level of calculus.  The remaining elements are
-   <a class="intref" href="#contm2_container">container</a> elements for
-   sets, intervals, vectors and so on.  For brevity, all elements
-   defined in this section are sometimes called <em>operator
-   elements</em>.</p>
-
-   <p>Each subsection below discusses a specific operator element,
-   beginning with a syntax table, giving the elements <a class="intref" href="#contm2_opclasses">operator class</a>.  Special case rules
-   for rewriting as Strict Markup are introduced as needed.
-   However, in most cases, the generic rewrite rules for the
-   appropriate operator class is sufficient.  In particular, unless
-   otherwise indicated, elements are to be rewritten using the
-   default <a>Rewrite: element</a>
-   rule.  Note, however, that all elements in this section must be rewritten in
-   some fashion, since they are not allowed in Strict Content markup.</p>
-
-   <p>In MathML 2, the <code class="attribute">definitionURL</code> attribute could be
-   used to redefine or modify the meaning of an operator
-   element. This use of the <code class="attribute">definitionURL</code> attribute is <a class="intref" href="#interf_deprec">deprecated</a> in MathML 3. Instead a
-   <code class="element">csymbol</code> element should be used.  In general, the value of
-   <code class="attribute">cd</code> attribute on the <code class="element">csymbol</code> will correspond to
-   the <code class="attribute">definitionURL</code> value.</p>
-
-   <section>
-    <h4 id="contm2_basicfun">Functions and Inverses</h4>
-
-
-
-    <section>
-     <h5 id="contm2_inverse">Inverse <code class="defn starttag">&lt;inverse&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-functional</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">inverse</code> element is applied to a function in order to
-     construct a generic expression for the functional inverse of that
-     function. The <code class="element">inverse</code> element may either be applied to
-     arguments, or it may appear alone, in which case it represents an
-     abstract inversion operator acting on other functions.</p>
-
-     <div id="fns1.inverse.ex1" class="mathml-example">
-
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;inverse/&gt;
-           &lt;ci&gt; f &lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;msup&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mn&gt;-1&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msup&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/fns1-inverse-ex1.gif" alt="{\msup{f}{{\left.\middle({\mn{-1}}\middle)\right.}}}"></img></p>
-      </blockquote>
-     </div>
-
-     <div id="fns1.inverse.ex2" class="mathml-example">
-
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;
-           &lt;apply&gt;&lt;inverse/&gt;&lt;ci type="matrix"&gt;A&lt;/ci&gt;&lt;/apply&gt;
-           &lt;ci&gt;a&lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;msup&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mn&gt;-1&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msup&gt;
-           &lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
-           &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/fns1-inverse-ex2.gif" alt="{\msup{A}{{\left.\middle({\mn{-1}}\middle)\right.}}\unicode{8289}{\left(a\right)}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-
-    
-    <section>
-     <h5 id="contm2_ident">Identity function <code class="defn emptytag">&lt;ident/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-functional</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">ident</code> element represents the
-     identity function. Note that MathML makes no assumption about the
-     domain and codomain of the represented identity function, which
-     depends on the context in which it is used.</p>
-
-     <div id="fns1.ident.ex1" class="mathml-example">
-
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;eq/&gt;
-           &lt;apply&gt;&lt;compose/&gt;
-             &lt;ci type="function"&gt;f&lt;/ci&gt;
-             &lt;apply&gt;&lt;inverse/&gt;
-               &lt;ci type="function"&gt;f&lt;/ci&gt;
-             &lt;/apply&gt;
-           &lt;/apply&gt;
-           &lt;ident/&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mrow&gt;
-             &lt;mi&gt;f&lt;/mi&gt;
-             &lt;mo&gt;&amp;#x2218;&lt;/mo&gt;
-             &lt;msup&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mn&gt;-1&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msup&gt;
-           &lt;/mrow&gt;
-           &lt;mo&gt;=&lt;/mo&gt;
-           &lt;mi&gt;id&lt;/mi&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/fns1-ident-ex1.gif" alt="{{f\unicode{8728}\msup{f}{{\left.\middle({\mn{-1}}\middle)\right.}}}={\minormal{id}}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_domain">Domain <code class="defn emptytag">&lt;domain/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-functional</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">domain</code> element represents the domain of the
-     function to which it is applied.  The domain is the set of values
-     over which the function is defined.</p>
-
-     <div id="fns1.domain.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;eq/&gt;
-           &lt;apply&gt;&lt;domain/&gt;&lt;ci&gt;f&lt;/ci&gt;&lt;/apply&gt;
-           &lt;reals/&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mrow&gt;&lt;mi&gt;domain&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
-           &lt;mo&gt;=&lt;/mo&gt;
-           &lt;mi mathvariant="double-struck"&gt;R&lt;/mi&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/fns1-domain-ex1.gif" alt="{{\mathop{{\minormal{domain}}}{\left(f\right)}}={\midoublestruck{R}}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_codomain">codomain <code class="defn emptytag">&lt;codomain/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-functional</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">codomain</code> represents the codomain, or range, of the function
-     to which is is applied.  Note that the codomain is not necessarily
-     equal to the image of the function, it is merely required to contain
-     the image.</p>
-
-     <div id="fns1.range.ex1" class="mathml-example">
-
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;eq/&gt;
-           &lt;apply&gt;&lt;codomain/&gt;&lt;ci&gt;f&lt;/ci&gt;&lt;/apply&gt;
-           &lt;rationals/&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mrow&gt;&lt;mi&gt;codomain&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
-           &lt;mo&gt;=&lt;/mo&gt;
-           &lt;mi mathvariant="double-struck"&gt;Q&lt;/mi&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/fns1-range-ex1.gif" alt="{{\mathop{{\minormal{codomain}}}{\left(f\right)}}={\midoublestruck{Q}}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_image">Image <code class="defn emptytag">&lt;image/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-functional</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">image</code> element represent the image of
-     the function to which it is applied. The image of a function is the
-     set of values taken by the function. Every point in the image is
-     generated by the function applied to some point of the domain.</p>
-
-     <div id="fns1.image.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;eq/&gt;
-           &lt;apply&gt;&lt;image/&gt;&lt;sin/&gt;&lt;/apply&gt;
-           &lt;interval&gt;&lt;cn&gt;-1&lt;/cn&gt;&lt;cn&gt; 1&lt;/cn&gt;&lt;/interval&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mrow&gt;&lt;mi&gt;image&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;sin&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
-           &lt;mo&gt;=&lt;/mo&gt;
-           &lt;mrow&gt;&lt;mo&gt;[&lt;/mo&gt;&lt;mn&gt;-1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;]&lt;/mo&gt;&lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/fns1-image-ex1.gif" alt="{{\mathop{{\minormal{image}}}{\left({\minormal{sin}}\right)}}={\left[{\mn{-1}},{1}\right]}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
+   
     <section>
      <h5 id="contm2_piecewise">Piecewise declaration <code class="defn starttag">&lt;piecewise&gt;</code>, <code class="defn starttag">&lt;piece&gt;</code>, <code class="defn starttag">&lt;otherwise&gt;</code></h5>
 
@@ -8227,31 +9465,10 @@
      </div>
 
     </section>
-   </section>
 
-   <section>
-    <h4>Arithmetic, Algebra and Logic</h4>
-
-    
-    
-            
     
     <section>
-     <h5 id="contm2_plus">Addition <code class="defn emptytag">&lt;plus/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary">nary-arith</a></td>
-       </tr>
-      </tbody>
-     </table>
-    </section>
-
-    <section>
-     <h5 id="contm2_power">Exponentiation <code class="defn emptytag">&lt;power/&gt;</code></h5>
+     <h5 id="contm_selector">Selector <code class="defn emptytag">&lt;selector/&gt;</code></h5>
 
      <table class="syntax data">
 
@@ -8259,1510 +9476,19 @@
 
        <tr>
 	<th>Class</th>
-	<td><a class="intref" href="#contm2_binary">binary-arith</a></td>
-       </tr>
-      </tbody>
-     </table>
-    </section>
-
-    
-
-
-    <section>
-     <h5 id="contm2_not">Not <code class="defn emptytag">&lt;not/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-logical</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <span><code class="element">not</code></span> element represents the logical not function
-     which takes one Boolean argument, and returns the opposite Boolean
-     value.</p>
-
-     <div id="logic1.not.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;not/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mo&gt;&amp;#xac;&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/logic1-not-ex1.gif" alt="{\unicode{172}a}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-
-    <section>
-     <h5 id="contm2_forall">Universal quantifier <code class="defn emptytag">&lt;forall/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_quantifier">quantifier</a></td>
+	<td><a class="intref" href="#contm_nary">nary-linalg</a></td>
        </tr>
 
        <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/quant1#forall">forall</a>,
-	<a class="omsymbol" href="https://openmath.org/cd/logic1#implies">implies</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">forall</code> element represents the universal ("for all")
-     quantifier which takes one or more bound variables, and an
-     argument which specifies the assertion being quantified.
-     In addition, <code class="element">condition</code> or other qualifiers may be used as
-     described in <a href="#contm2_quantifier"></a> to limit the domain
-     of the bound variables.</p>
-
-     <div id="quant1.forall.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;bind&gt;&lt;forall/&gt;
-           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;apply&gt;&lt;eq/&gt;
-             &lt;apply&gt;&lt;minus/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/apply&gt;
-             &lt;cn&gt;0&lt;/cn&gt;
-           &lt;/apply&gt;
-         &lt;/bind&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;&amp;#x2200;&lt;/mo&gt;
-           &lt;mi&gt;x&lt;/mi&gt;
-           &lt;mo&gt;.&lt;/mo&gt;
-           &lt;mrow&gt;
-	    &lt;mo&gt;(&lt;/mo&gt;
-             &lt;mrow&gt;
-               &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;
-               &lt;mo&gt;=&lt;/mo&gt;
-               &lt;mn&gt;0&lt;/mn&gt;
-             &lt;/mrow&gt;
-	     &lt;mo&gt;)&lt;/mo&gt;
-           &lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/quant1-forall-ex1.gif" alt="{\unicode{8704}x.{\left({{x\unicode{8722}x}={0}}\right)}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_exists">Existential quantifier <code class="defn emptytag">&lt;exists/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_quantifier">quantifier</a></td>
+	<th>Attributes</th>
+	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
        </tr>
 
        <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/quant1#exists">exists</a>,
-	<a class="omsymbol" href="https://openmath.org/cd/logic1#and">and</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">exists</code> element represents the existential ("there exists")
-     quantifier which takes one or more bound variables, and an
-     argument which specifies the assertion being quantified. In
-     addition, <code class="element">condition</code> or other qualifiers may be used as
-     described in <a href="#contm2_quantifier"></a> to limit the domain
-     of the bound variables.</p>
-
-     <div id="quant1.exists.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;bind&gt;&lt;exists/&gt;
-           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;apply&gt;&lt;eq/&gt;
-             &lt;apply&gt;&lt;ci&gt;f&lt;/ci&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/apply&gt;
-             &lt;cn&gt;0&lt;/cn&gt;
-           &lt;/apply&gt;
-         &lt;/bind&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;&amp;#x2203;&lt;/mo&gt;
-           &lt;mi&gt;x&lt;/mi&gt;
-           &lt;mo&gt;.&lt;/mo&gt;
-           &lt;mrow&gt;
-	    &lt;mo&gt;(&lt;/mo&gt;
-             &lt;mrow&gt;
-               &lt;mrow&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
-               &lt;mo&gt;=&lt;/mo&gt;
-               &lt;mn&gt;0&lt;/mn&gt;
-             &lt;/mrow&gt;
-	     &lt;mo&gt;)&lt;/mo&gt;
-           &lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/quant1-exists-ex1.gif" alt="{\unicode{8707}x.{\left({{\mathop{f}{\left(x\right)}}={0}}\right)}}"></img></p>
-      </blockquote>
-     </div>
-
-     <div id="quant1.exists.ex2" class="mathml-example">
-
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;exists/&gt;
-           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;domainofapplication&gt;
-             &lt;integers/&gt;
-           &lt;/domainofapplication&gt;
-           &lt;apply&gt;&lt;eq/&gt;
-             &lt;apply&gt;&lt;ci&gt;f&lt;/ci&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/apply&gt;
-             &lt;cn&gt;0&lt;/cn&gt;
-           &lt;/apply&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Strict MathML equivalent:</p>
-
-      <div class="example strict-mathml">
-       <pre>
-         &lt;bind&gt;&lt;csymbol cd="quant1"&gt;exists&lt;/csymbol&gt;
-           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;apply&gt;&lt;csymbol cd="logic1"&gt;and&lt;/csymbol&gt;
-             &lt;apply&gt;&lt;csymbol cd="set1"&gt;in&lt;/csymbol&gt;
-               &lt;ci&gt;x&lt;/ci&gt;
-               &lt;csymbol cd="setname1"&gt;Z&lt;/csymbol&gt;
-             &lt;/apply&gt;
-             &lt;apply&gt;&lt;csymbol cd="relation1"&gt;eq&lt;/csymbol&gt;
-               &lt;apply&gt;&lt;ci&gt;f&lt;/ci&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/apply&gt;
-               &lt;cn&gt;0&lt;/cn&gt;
-             &lt;/apply&gt;
-           &lt;/apply&gt;
-         &lt;/bind&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;&amp;#x2203;&lt;/mo&gt;
-           &lt;mi&gt;x&lt;/mi&gt;
-           &lt;mo&gt;.&lt;/mo&gt;
-           &lt;mrow&gt;
-	    &lt;mo&gt;(&lt;/mo&gt;
-             &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x2208;&lt;/mo&gt;&lt;mi mathvariant="double-struck"&gt;Z&lt;/mi&gt;&lt;/mrow&gt;
-             &lt;mo&gt;&amp;#x2227;&lt;/mo&gt;
-             &lt;mrow&gt;
-               &lt;mrow&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
-               &lt;mo&gt;=&lt;/mo&gt;
-               &lt;mn&gt;0&lt;/mn&gt;
-             &lt;/mrow&gt;
-	     &lt;mo&gt;)&lt;/mo&gt;
-	   &lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/quant1-exists-ex2.gif" alt="{\unicode{8707}x.{\left({x\unicode{8712}{\midoublestruck{Z}}}\unicode{8743}{{\mathop{f}{\left(x\right)}}={0}}\right)}}"></img></p>
-      </blockquote>
-
-     </div>
-    </section>
-
-    
-    
-
-    
-   
-
-    
-       </section>
-
-   <section>
-    <h4>Relations</h4>
-
-
-
-
-
-
-
-    
-    
-    
-   </section>
-
-   <section>
-    <h4>Calculus and Vector Calculus</h4>
-
-
-
-
-    <section>
-     <h5 id="contm2_divergence">Divergence <code class="defn emptytag">&lt;divergence/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-veccalc</a></td>
+	<th>Content</th>
+	<td>Empty</td>
        </tr>
 
-      </tbody>
-     </table>
-
-     <p>The <code class="element">divergence</code> element is the vector calculus divergence
-     operator, often called div. It represents the divergence function
-     which takes one argument which should be a vector of scalar-valued
-     functions, intended to represent a vector-valued function, and returns
-     the scalar-valued function giving the divergence of the argument.</p>
-
-     <div id="veccalc1.divergence.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;divergence/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;div&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/veccalc1-divergence-ex1.gif" alt="{\mathop{{\minormal{div}}}{\left(a\right)}}"></img></p>
-      </blockquote>
-     </div>
-
-     <div id="veccalc1.divergence.ex2" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;divergence/&gt;
-           &lt;ci type="vector"&gt;E&lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;div&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/veccalc1-divergence-ex2.gif" alt="{\mathop{{\minormal{div}}}{\left(E\right)}}"></img></p>
-      </blockquote>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mo&gt;&amp;#x2207;&lt;/mo&gt;&lt;mo&gt;&amp;#x22c5;&lt;/mo&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/veccalc1-divergence-ex2-2.gif" alt="{\unicode{8711}\unicode{8901}E}"></img></p>
-      </blockquote>
-
-     </div>
-
-     <p>The functions defining the coordinates may be defined implicitly as expressions defined
-     in terms of the coordinate names, in which case the coordinate names must be provided
-     as
-     bound variables.</p>
-
-     <div id="veccalc1.divergence.ex3" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;divergence/&gt;
-           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;bvar&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;bvar&gt;&lt;ci&gt;z&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;vector&gt;
-             &lt;apply&gt;&lt;plus/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/apply&gt;
-             &lt;apply&gt;&lt;plus/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci&gt;z&lt;/ci&gt;&lt;/apply&gt;
-             &lt;apply&gt;&lt;plus/&gt;&lt;ci&gt;z&lt;/ci&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/apply&gt;
-           &lt;/vector&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mi&gt;div&lt;/mi&gt;
-           &lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
-           &lt;mo&gt;(&lt;/mo&gt;
-           &lt;mtable&gt;
-             &lt;mtr&gt;&lt;mtd&gt;
-               &lt;mi&gt;x&lt;/mi&gt;
-               &lt;mo&gt;&amp;#x21a6;&lt;/mo&gt;
-               &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;/mrow&gt;
-             &lt;/mtd&gt;&lt;/mtr&gt;
-             &lt;mtr&gt;&lt;mtd&gt;
-               &lt;mi&gt;y&lt;/mi&gt;
-               &lt;mo&gt;&amp;#x21a6;&lt;/mo&gt;
-               &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;/mrow&gt;
-             &lt;/mtd&gt;&lt;/mtr&gt;
-             &lt;mtr&gt;&lt;mtd&gt;
-               &lt;mi&gt;z&lt;/mi&gt;
-               &lt;mo&gt;&amp;#x21a6;&lt;/mo&gt;
-               &lt;mrow&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;/mrow&gt;
-             &lt;/mtd&gt;&lt;/mtr&gt;
-           &lt;/mtable&gt;
-           &lt;mo&gt;)&lt;/mo&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/veccalc1-divergence-ex3.gif" alt="{\left.\mathop{{\minormal{div}}}\middle({\begin{matrix}x\unicode{8614}{x+y}\\y\unicode{8614}{x+z}\\z\unicode{8614}{z+y}\end{matrix}}\middle)\right.}"></img></p>
-      </blockquote>
-
-     </div>
-
-    </section>
-
-    <section>
-     <h5 id="contm2_grad">Gradient <code class="defn emptytag">&lt;grad/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-veccalc</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">grad</code> element is the vector calculus gradient operator, often called
-     grad. It is used to represent the grad function, which takes one
-     argument which should be a scalar-valued function and returns a
-     vector of functions.</p>
-
-     <div id="veccalc1.gradient.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;grad/&gt;&lt;ci type="function"&gt;f&lt;/ci&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mi&gt;grad&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/veccalc1-gradient-ex1.gif" alt="{\mathop{{\minormal{grad}}}{\left(f\right)}}"></img></p>
-      </blockquote>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;&amp;#x2207;&lt;/mo&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
-           &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/veccalc1-gradient-ex1-2.gif" alt="{\unicode{8711}\unicode{8289}{\left(f\right)}}"></img></p>
-      </blockquote>
-
-     </div>
-
-     <p>The functions defining the coordinates may be defined implicitly as expressions
-     defined in terms of the coordinate names, in which case the coordinate names must
-     be
-     provided as bound variables.</p>
-
-     <div id="veccalc1.gradient.ex2" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;grad/&gt;
-           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;bvar&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;bvar&gt;&lt;ci&gt;z&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;apply&gt;&lt;times/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;ci&gt;z&lt;/ci&gt;&lt;/apply&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mi&gt;grad&lt;/mi&gt;
-           &lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
-           &lt;mrow&gt;
-             &lt;mo&gt;(&lt;/mo&gt;
-             &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
-             &lt;mo&gt;&amp;#x21a6;&lt;/mo&gt;
-             &lt;mrow&gt;
-               &lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x2062;&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;&amp;#x2062;&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;
-             &lt;/mrow&gt;
-             &lt;mo&gt;)&lt;/mo&gt;
-           &lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/veccalc1-gradient-ex2.gif" alt="{\mathop{{\minormal{grad}}}{\left.\middle({\left(x,y,z\right)}\unicode{8614}{x\unicode{8290}y\unicode{8290}z}\middle)\right.}}"></img></p>
-      </blockquote>
-
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_curl">Curl <code class="defn emptytag">&lt;curl/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-veccalc</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">curl</code> element is used to represent the curl function
-     of vector calculus. It takes one argument which should be a vector
-     of scalar-valued functions, intended to represent a vector-valued
-     function, and returns a vector of functions.</p>
-
-     <div id="veccalc1.curl.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;curl/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;curl&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/veccalc1-curl-ex1.gif" alt="{\mathop{{\minormal{curl}}}{\left(a\right)}}"></img></p>
-      </blockquote>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mo&gt;&amp;#x2207;&lt;/mo&gt;&lt;mo&gt;&amp;#xd7;&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/veccalc1-curl-ex1-2.gif" alt="{\unicode{8711}\unicode{215}a}"></img></p>
-      </blockquote>
-
-     </div>
-
-     <p>The functions defining the coordinates may be defined implicitly as expressions
-     defined in terms of the coordinate names, in which case the coordinate names must
-     be
-     provided as bound variables.</p>
-
-    </section>
-
-    <section>
-     <h5 id="contm2_laplacian">Laplacian <code class="defn emptytag">&lt;laplacian/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-veccalc</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">laplacian</code> element represents the Laplacian operator of
-     vector calculus.  The Laplacian takes a single argument which is a
-     vector of scalar-valued functions representing a vector-valued
-     function, and returns a vector of functions.</p>
-
-     <div id="veccalc1.laplacian.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;laplacian/&gt;&lt;ci type="vector"&gt;E&lt;/ci&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;msup&gt;&lt;mo&gt;&amp;#x2207;&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
-           &lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
-           &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/veccalc1-laplacian-ex1.gif" alt="{\msup{\unicode{8711}}{{2}}\unicode{8289}{\left(E\right)}}"></img></p>
-      </blockquote>
-     </div>
-
-     <p>The functions defining the coordinates may be defined implicitly as expressions
-     defined in terms of the coordinate names, in which case the coordinate names must
-     be
-     provided as bound variables.</p>
-
-     <div id="veccalc1.laplacian.ex2" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;laplacian/&gt;
-           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;bvar&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;bvar&gt;&lt;ci&gt;z&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;apply&gt;&lt;ci&gt;f&lt;/ci&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/apply&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;msup&gt;&lt;mo&gt;&amp;#x2207;&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
-           &lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
-           &lt;mrow&gt;
-             &lt;mo&gt;(&lt;/mo&gt;
-             &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
-             &lt;mo&gt;&amp;#x21a6;&lt;/mo&gt;
-             &lt;mrow&gt;
-               &lt;mi&gt;f&lt;/mi&gt;
-               &lt;mo&gt;&amp;#x2061;&lt;/mo&gt;
-               &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
-             &lt;/mrow&gt;
-             &lt;mo&gt;)&lt;/mo&gt;
-           &lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/veccalc1-laplacian-ex2.gif" alt="{\msup{\unicode{8711}}{{2}}\unicode{8289}{\left.\middle({\left(x,y,z\right)}\unicode{8614}{\mathop{f}{\left(x,y\right)}}\middle)\right.}}"></img></p>
-      </blockquote>
-
-     </div>
-
-    </section>
-   </section>
-
-   <section>
-    <h4 id="contm2_sets">Theory of Sets</h4>
-
-    <section>
-     <h5 id="contm2_set">Set <code class="defn starttag">&lt;set&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary">nary-setlist-constructor</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">set</code> represents a function which constructs
-     mathematical sets from its arguments. It is an n-ary function. The
-     members of the set to be constructed may be given explicitly as
-     child elements of the constructor, or specified by rule as described
-     in <a href="#contm2_container_constructor"></a>.  There is no implied ordering to
-     the elements of a set.</p>
-
-     <div id="set1.set.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;set&gt;
-           &lt;ci&gt;a&lt;/ci&gt;&lt;ci&gt;b&lt;/ci&gt;&lt;ci&gt;c&lt;/ci&gt;
-         &lt;/set&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;{&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo&gt;}&lt;/mo&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-set-ex1.gif" alt="{\left.\middle\{a,b,c\middle\}\right.}"></img></p>
-      </blockquote>
-     </div>
-
-     <p>In general, a set can be constructed by providing a function and a domain of
-     application.  The elements of the set correspond to the values obtained by evaluating
-     the function at the points of the domain.</p>
-
-     <div id="set1.suchthat.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;set&gt;
-           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;condition&gt;
-             &lt;apply&gt;&lt;lt/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;cn&gt;5&lt;/cn&gt;&lt;/apply&gt;
-           &lt;/condition&gt;
-           &lt;ci&gt;x&lt;/ci&gt;
-         &lt;/set&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;{&lt;/mo&gt;
-           &lt;mi&gt;x&lt;/mi&gt;
-           &lt;mo&gt;|&lt;/mo&gt;
-           &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;lt;&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;/mrow&gt;
-           &lt;mo&gt;}&lt;/mo&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-suchthat-ex1.gif" alt="{\left.\middle\{x\middle|{x\lt{5}}\middle\}\right.}"></img></p>
-      </blockquote>
-     </div>
-
-     <div id="set1.suchthat.ex2" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;set&gt;
-           &lt;bvar&gt;&lt;ci type="set"&gt;S&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;condition&gt;
-             &lt;apply&gt;&lt;in/&gt;&lt;ci&gt;S&lt;/ci&gt;&lt;ci type="list"&gt;T&lt;/ci&gt;&lt;/apply&gt;
-           &lt;/condition&gt;
-           &lt;ci&gt;S&lt;/ci&gt;
-         &lt;/set&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;{&lt;/mo&gt;
-           &lt;mi&gt;S&lt;/mi&gt;
-           &lt;mo&gt;|&lt;/mo&gt;
-           &lt;mrow&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo&gt;&amp;#x2208;&lt;/mo&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;/mrow&gt;
-           &lt;mo&gt;}&lt;/mo&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-suchthat-ex2.gif" alt="{\left.\middle\{S\middle|{S\unicode{8712}T}\middle\}\right.}"></img></p>
-      </blockquote>
-     </div>
-
-     <div id="set1.suchthat.ex3" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;set&gt;
-           &lt;bvar&gt;&lt;ci&gt; x &lt;/ci&gt;&lt;/bvar&gt;
-           &lt;condition&gt;
-             &lt;apply&gt;&lt;and/&gt;
-               &lt;apply&gt;&lt;lt/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;cn&gt;5&lt;/cn&gt;&lt;/apply&gt;
-               &lt;apply&gt;&lt;in/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;naturalnumbers/&gt;&lt;/apply&gt;
-             &lt;/apply&gt;
-           &lt;/condition&gt;
-           &lt;ci&gt;x&lt;/ci&gt;
-         &lt;/set&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;{&lt;/mo&gt;
-           &lt;mi&gt;x&lt;/mi&gt;
-           &lt;mo&gt;|&lt;/mo&gt;
-           &lt;mrow&gt;
-             &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;lt;&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
-             &lt;mo&gt;&amp;#x2227;&lt;/mo&gt;
-             &lt;mrow&gt;
-               &lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x2208;&lt;/mo&gt;&lt;mi mathvariant="double-struck"&gt;N&lt;/mi&gt;
-             &lt;/mrow&gt;
-           &lt;/mrow&gt;
-           &lt;mo&gt;}&lt;/mo&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-suchthat-ex3.gif" alt="{\left.\middle\{x\middle|{{\left.\middle(x\lt{5}\middle)\right.}\unicode{8743}{x\unicode{8712}{\midoublestruck{N}}}}\middle\}\right.}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_list">List <code class="defn starttag">&lt;list&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary">nary-setlist-constructor</a></td>
-       </tr>
-
-       <tr>
-
-	<th><code class="attribute">order</code> Attribute Values</th>
-
-	<td>"numeric" | "lexicographic"</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/interval1#interval_cc">interval_cc</a>, <a class="omsymbol" href="https://openmath.org/cd/list1#list">list</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">list</code> elements represents the n-ary function which
-     constructs a list from its arguments. Lists differ from sets in that
-     there is an explicit order to the elements.</p>
-
-     <p>The list entries and order may be given explicitly.</p>
-
-     <div id="list1.list.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;list&gt;
-           &lt;ci&gt;a&lt;/ci&gt;&lt;ci&gt;b&lt;/ci&gt;&lt;ci&gt;c&lt;/ci&gt;
-         &lt;/list&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/list1-list-ex1.gif" alt="{\left.\middle(a,b,c\middle)\right.}"></img></p>
-      </blockquote>
-     </div>
-
-     <p>In general a list can be constructed by providing a function and
-     a domain of application.  The elements of the list correspond to the
-     values obtained by evaluating the function at the points of the
-     domain. When this method is used, the ordering of the list elements
-     may not be clear, so the kind of ordering may be specified by the
-     <code class="attribute">order</code> attribute.  Two orders are supported: lexicographic
-     and numeric.</p>
-
-     <div id="list1.suchthat.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;list order="numeric"&gt;
-           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;condition&gt;
-             &lt;apply&gt;&lt;lt/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;cn&gt;5&lt;/cn&gt;&lt;/apply&gt;
-           &lt;/condition&gt;
-         &lt;/list&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;(&lt;/mo&gt;
-           &lt;mi&gt;x&lt;/mi&gt;
-           &lt;mo&gt;|&lt;/mo&gt;
-           &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;lt;&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;/mrow&gt;
-           &lt;mo&gt;)&lt;/mo&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/list1-suchthat-ex1.gif" alt="{\left.\middle(x\middle|{x\lt{5}}\middle)\right.}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-
-
-    <section>
-     <h5 id="contm2_in">Set inclusion <code class="defn emptytag">&lt;in/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_binary">binary-set</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">in</code> element represents the set inclusion relation.
-     It has two arguments, an element and a set. It is used to denote
-     that the element is in the given set.</p>
-
-     <div id="set1.in.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;in/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;ci type="set"&gt;A&lt;/ci&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;&amp;#x2208;&lt;/mo&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-in-ex1.gif" alt="{a\unicode{8712}A}"></img></p>
-      </blockquote>
-     </div>
-
-    </section>
-
-    <section>
-     <h5 id="contm2_notin">Set exclusion <code class="defn emptytag">&lt;notin/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_binary">binary-set</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">notin</code> represents the negated set inclusion
-     relation. It has two arguments, an element and a set. It is
-     used to denote that the element is not in the given set.</p>
-
-     <div id="set1.notin.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;notin/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;ci type="set"&gt;A&lt;/ci&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;&amp;#x2209;&lt;/mo&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-notin-ex1.gif" alt="{a\unicode{8713}A}"></img></p>
-      </blockquote>
-     </div>
-
-    </section>
-
-    
-    
-    <section>
-     <h5 id="contm2_notsubset">Not Subset <code class="defn emptytag">&lt;notsubset/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_binary">binary-set</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">notsubset</code> element represents the negated subset
-     relation. It is used to denote that the first argument is not a subset of the
-     second.</p>
-
-     <div id="set1.notsubset.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;notsubset/&gt;
-           &lt;ci type="set"&gt;A&lt;/ci&gt;
-           &lt;ci type="set"&gt;B&lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2288;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-notsubset-ex1.gif" alt="{A\unicode{8840}B}"></img></p>
-      </blockquote>
-     </div>
-
-    </section>
-
-    <section>
-     <h5 id="contm2_notprsubset">Not Proper Subset <code class="defn emptytag">&lt;notprsubset/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_binary">binary-set</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">notprsubset</code> element represents the negated proper
-     subset relation. It is used to denote that the first argument is not
-     a proper subset of the second.</p>
-
-     <div id="set1.notprsubset.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;notprsubset/&gt;
-           &lt;ci type="set"&gt;A&lt;/ci&gt;
-           &lt;ci type="set"&gt;B&lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2284;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-notprsubset-ex1.gif" alt="{A\unicode{8836}B}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_setdiff">Set Difference <code class="defn emptytag">&lt;setdiff/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_binary">binary-set</a></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/set1#setdiff">setdiff</a>, <a class="omsymbol" href="https://openmath.org/cd/multiset1#setdiff">setdiff</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">setdiff</code> element represents set difference
-     operator. It takes two sets as arguments, and denotes the set that
-     contains all the elements that occur in the first set, but not in
-     the second.</p>
-
-     <div id="set1.setdiff.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;setdiff/&gt;
-           &lt;ci type="set"&gt;A&lt;/ci&gt;
-           &lt;ci type="set"&gt;B&lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2216;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-setdiff-ex1.gif" alt="{A\unicode{8726}B}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_card">Cardinality <code class="defn emptytag">&lt;card/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-set</a></td>
-       </tr>
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/set1#size">size</a>, <a class="omsymbol" href="https://openmath.org/cd/multiset1#size">size</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">card</code> element represents the cardinality function,
-     which takes a set argument and returns its cardinality, i.e. the
-     number of elements in the set.  The cardinality of a set is a
-     non-negative integer, or an infinite cardinal number.</p>
-
-     <div id="set1.size.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;eq/&gt;
-           &lt;apply&gt;&lt;card/&gt;&lt;ci&gt;A&lt;/ci&gt;&lt;/apply&gt;
-           &lt;cn&gt;5&lt;/cn&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mrow&gt;&lt;mo&gt;|&lt;/mo&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;|&lt;/mo&gt;&lt;/mrow&gt;
-           &lt;mo&gt;=&lt;/mo&gt;
-           &lt;mn&gt;5&lt;/mn&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-size-ex1.gif" alt="{{\left.\middle|A\middle|\right.}={5}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    
-   </section>
-
-   <section>
-    <h4>Sequences and Series</h4>
-
-
-
-
-    
-   </section>
-
-   <section>
-    <h4 id="contm2_elemclass">Elementary classical functions</h4>
-
-    
-    
-    
-    
-    <section>
-     <h5 id="contm2_ln">Natural Logarithm <code class="defn emptytag">&lt;ln/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-functional</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">ln</code> element represents the natural logarithm function.</p>
-
-     <div id="transc1.ln.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;ln/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;ln&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/transc1-ln-ex1.gif" alt="{\mathop{{\minormal{ln}}}a}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_log">Logarithm <code class="defn emptytag">&lt;log/&gt;</code>
-     <span>, <code class="defn starttag">&lt;logbase&gt;</code></span>
-     </h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-functional</a></td>
-       </tr>
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">logbase</code></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">log</code> elements represents the logarithm function
-     relative to a given base.  When present, the <code class="element">logbase</code>
-     qualifier specifies the base. Otherwise, the base is assumed to be 10.
-     <code class="element">apply</code>.</p>
-
-     <div id="transc1.log.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;log/&gt;
-           &lt;logbase&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;/logbase&gt;
-           &lt;ci&gt;x&lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/transc1-log-ex1.gif" alt="{\msub{{\minormal{log}}}{{3}}\unicode{8289}x}"></img></p>
-      </blockquote>
-     </div>
-
-     <div id="transc1.log.ex2" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;log/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/transc1-log-ex2.gif" alt="{\mathop{{\minormal{log}}}x}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-   </section>
-
-   <section>
-    <h4>Statistics</h4>
-
-    
-    
-
-
-
-    <section>
-     <h5 id="contm2_moment">Moment <code class="defn emptytag">&lt;moment/&gt;</code>, <code class="defn starttag">&lt;momentabout&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_unary">unary-functional</a></td>
-       </tr>
-
-       <tr>
-	<th>Qualifiers</th>
-	<td><code class="parsing_ref">degree</code>,
-	<code class="parsing_ref">momentabout</code></td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/s_data1#moment">moment</a>,
-	<a class="omsymbol" href="https://openmath.org/cd/s_dist1#moment">moment</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">moment</code> element is used to denote the <i class="var">i</i>th moment of a set of data set or
-     random variable. The <code class="element">moment</code> function accepts the <code class="element">degree</code> and
-     <code class="element">momentabout</code> qualifiers. If present, the <code class="element">degree</code> schema denotes the order of
-     the moment. Otherwise, the moment is assumed to be the first order moment. When used
-     with
-     <code class="element">moment</code>, the <code class="element">degree</code> schema is expected to contain a
-     single child. If present, the <code class="element">momentabout</code> schema denotes the
-     point about which the moment is taken. Otherwise, the moment is
-     assumed to be the moment about zero.</p>
-
-     <div id="s_data1.moment.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;moment/&gt;
-           &lt;degree&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;/degree&gt;
-           &lt;momentabout&gt;&lt;mean/&gt;&lt;/momentabout&gt;
-           &lt;cn&gt;6&lt;/cn&gt;&lt;cn&gt;4&lt;/cn&gt;&lt;cn&gt;2&lt;/cn&gt;&lt;cn&gt;2&lt;/cn&gt;&lt;cn&gt;5&lt;/cn&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;msub&gt;
-           &lt;mrow&gt;
-             &lt;mo&gt;&amp;#x27E8;&lt;/mo&gt;
-             &lt;msup&gt;
-               &lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mn&gt;6&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;
-               &lt;mn&gt;3&lt;/mn&gt;
-             &lt;/msup&gt;
-             &lt;mo&gt;&amp;#x27E9;&lt;/mo&gt;
-           &lt;/mrow&gt;
-           &lt;mi&gt;mean&lt;/mi&gt;
-         &lt;/msub&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/s_data1-moment-ex1.gif" alt="\msub{{\unicode{9001}\msup{{\left({6},{4},{2},{2},{5}\right)}}{{3}}\unicode{9002}}}{{\minormal{mean}}}"></img></p>
-      </blockquote>
-     </div>
-
-     <div id="s_dist1.moment.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;moment/&gt;
-           &lt;degree&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;/degree&gt;
-           &lt;momentabout&gt;&lt;ci&gt;p&lt;/ci&gt;&lt;/momentabout&gt;
-           &lt;ci&gt;X&lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;msub&gt;
-           &lt;mrow&gt;
-             &lt;mo&gt;&amp;#x27E8;&lt;/mo&gt;
-             &lt;msup&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;
-             &lt;mo&gt;&amp;#x27E9;&lt;/mo&gt;
-           &lt;/mrow&gt;
-           &lt;mi&gt;p&lt;/mi&gt;
-         &lt;/msub&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/s_dist1-moment-ex1.gif" alt="\msub{{\unicode{9001}\msup{X}{{3}}\unicode{9002}}}{p}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-   </section>
-
-   <section>
-    <h4>Linear Algebra</h4>
-
-    
-    
-    
-    
-    
-    <section>
-     <h5 id="contm2_selector">Selector <code class="defn emptytag">&lt;selector/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary">nary-linalg</a></td>
-       </tr>
        <tr>
 	<th>OM Symbols</th>
 	<td><a class="omsymbol" href="https://openmath.org/cd/linalg1#vector_selector">vector_selector</a>,
@@ -9870,180 +9596,7 @@
       </blockquote>
      </div>
     </section>
-
-    <section>
-     <h5 id="contm2_vectorproduct">Vector product <code class="defn emptytag">&lt;vectorproduct/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_binary">binary-linalg</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>This element represents the vector product. It takes two three-dimensional vector
-     arguments
-     and represents as value a three-dimensional vector.</p>
-
-     <div id="linalg1.vectorproduct.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;eq/&gt;
-           &lt;apply&gt;&lt;vectorproduct/&gt;
-             &lt;ci type="vector"&gt; A &lt;/ci&gt;
-             &lt;ci type="vector"&gt; B &lt;/ci&gt;
-           &lt;/apply&gt;
-           &lt;apply&gt;&lt;times/&gt;
-             &lt;ci&gt;a&lt;/ci&gt;
-             &lt;ci&gt;b&lt;/ci&gt;
-             &lt;apply&gt;&lt;sin/&gt;&lt;ci&gt;&amp;#x3b8;&lt;/ci&gt;&lt;/apply&gt;
-             &lt;ci type="vector"&gt; N &lt;/ci&gt;
-           &lt;/apply&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#xd7;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
-           &lt;mo&gt;=&lt;/mo&gt;
-           &lt;mrow&gt;
-             &lt;mi&gt;a&lt;/mi&gt;
-             &lt;mo&gt;&amp;#x2062;&lt;/mo&gt;
-             &lt;mi&gt;b&lt;/mi&gt;
-             &lt;mo&gt;&amp;#x2062;&lt;/mo&gt;
-             &lt;mrow&gt;&lt;mi&gt;sin&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;&amp;#x3b8;&lt;/mi&gt;&lt;/mrow&gt;
-             &lt;mo&gt;&amp;#x2062;&lt;/mo&gt;
-             &lt;mi&gt;N&lt;/mi&gt;
-           &lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/linalg1-vectorproduct-ex1.gif" alt="{{A\unicode{215}B}={a\unicode{8290}b\unicode{8290}{\mathop{{\minormal{sin}}}\unicode{952}}\unicode{8290}N}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_scalarproduct">Scalar product <code class="defn emptytag">&lt;scalarproduct/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_binary">binary-linalg</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>This element represents the scalar product function. It takes two vector arguments
-
-     and returns a scalar value.</p>
-
-     <div id="linalg1.scalarproduct.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;eq/&gt;
-           &lt;apply&gt;&lt;scalarproduct/&gt;
-             &lt;ci type="vector"&gt;A&lt;/ci&gt;
-             &lt;ci type="vector"&gt;B&lt;/ci&gt;
-           &lt;/apply&gt;
-           &lt;apply&gt;&lt;times/&gt;
-             &lt;ci&gt;a&lt;/ci&gt;
-             &lt;ci&gt;b&lt;/ci&gt;
-             &lt;apply&gt;&lt;cos/&gt;&lt;ci&gt;&amp;#x3b8;&lt;/ci&gt;&lt;/apply&gt;
-           &lt;/apply&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;.&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
-           &lt;mo&gt;=&lt;/mo&gt;
-           &lt;mrow&gt;
-             &lt;mi&gt;a&lt;/mi&gt;
-             &lt;mo&gt;&amp;#x2062;&lt;/mo&gt;
-             &lt;mi&gt;b&lt;/mi&gt;
-             &lt;mo&gt;&amp;#x2062;&lt;/mo&gt;
-             &lt;mrow&gt;&lt;mi&gt;cos&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;&amp;#x3b8;&lt;/mi&gt;&lt;/mrow&gt;
-           &lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/linalg1-scalarproduct-ex1.gif" alt="{{A.B}={a\unicode{8290}b\unicode{8290}{\mathop{{\minormal{cos}}}\unicode{952}}}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_outerproduct">Outer product <code class="defn emptytag">&lt;outerproduct/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-
-	<td><a class="intref" href="#contm2_binary">binary-linalg</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>This element represents the outer product function. It takes two vector arguments
-
-     and returns as value a matrix.</p>
-
-     <div id="linalg1.outerproduct.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;outerproduct/&gt;
-           &lt;ci type="vector"&gt;A&lt;/ci&gt;
-           &lt;ci type="vector"&gt;B&lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2297;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/linalg1-outerproduct-ex1.gif" alt="{A\unicode{8855}B}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-   </section>
-
   </section>
+
 
  </section>
