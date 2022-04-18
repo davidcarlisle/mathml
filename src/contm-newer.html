@@ -3538,6 +3538,93 @@
      the list may be specified implicitly via the use of qualifier
      elements.</p>
 
+     <p>The <code class="element">union</code> element is used to denote the n-ary union of sets. It takes sets as arguments,
+     and denotes the set that contains all the elements that occur in any
+     of them.</p>
+
+     <p>Arguments may be explicitly specified.</p>
+
+     <div id="set1.union.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;union/&gt;&lt;ci&gt;A&lt;/ci&gt;&lt;ci&gt;B&lt;/ci&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x222a;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-union-ex1.gif" alt="{A\unicode{8746}B}"></img></p>
+      </blockquote>
+     </div>
+
+     <p>Arguments may also be specified using qualifier elements as described in
+     <a href="#contm2_nary"></a>. operator element can be used as a binding
+     operator to construct the union over a collection of sets.</p>
+
+     <div id="set1.big_union.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;union/&gt;
+           &lt;bvar&gt;&lt;ci type="set"&gt;S&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;domainofapplication&gt;
+             &lt;ci type="list"&gt;L&lt;/ci&gt;
+           &lt;/domainofapplication&gt;
+           &lt;ci type="set"&gt; S&lt;/ci&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;munder&gt;&lt;mo&gt;&amp;#x22c3;&lt;/mo&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;/munder&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-big_union-ex1.gif" alt="{\munder{\unicode{8899}}{L}S}"></img></p>
+      </blockquote>
+     </div>
+
+     
+     <p>The <code class="element">cartesianproduct</code> element is used to represents the
+     Cartesian product operator. It takes sets as arguments, which may be
+     explicitly specified in the enclosing <code class="element">apply</code> element, or
+     specified using qualifier elements as described in <a href="#contm2_nary"></a>.</p>
+
+     <div id="set1.cartesianproduct.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;cartesianproduct/&gt;&lt;ci&gt;A&lt;/ci&gt;&lt;ci&gt;B&lt;/ci&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#xd7;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-cartesianproduct-ex1.gif" alt="{A\unicode{215}B}"></img></p>
+      </blockquote>
+     </div>
 
     </section>
 
@@ -3557,6 +3644,151 @@
        </h5>
 
 
+     <p>A vector is an ordered n-tuple of values representing an element of an
+     n-dimensional vector space.</p>
+
+     <p>For purposes of interaction with matrices and matrix multiplication, vectors are
+     regarded as equivalent to a matrix consisting of a single column, and the transpose
+     of
+     a vector as a matrix consisting of a single row. </p>
+
+     <p>The components of a <code class="element">vector</code> may be given explicitly as
+     child elements, or specified by rule as described in <a href="#contm2_container_constructor"></a>.</p>
+
+     <div id="linalg2.vector.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;vector&gt;
+           &lt;apply&gt;&lt;plus/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/apply&gt;
+           &lt;cn&gt;3&lt;/cn&gt;
+           &lt;cn&gt;7&lt;/cn&gt;
+         &lt;/vector&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;(&lt;/mo&gt;
+           &lt;mtable&gt;
+             &lt;mtr&gt;&lt;mtd&gt;&lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;/mrow&gt;&lt;/mtd&gt;&lt;/mtr&gt;
+             &lt;mtr&gt;&lt;mtd&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/mtd&gt;&lt;/mtr&gt;
+             &lt;mtr&gt;&lt;mtd&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;/mtd&gt;&lt;/mtr&gt;
+           &lt;/mtable&gt;
+           &lt;mo&gt;)&lt;/mo&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/linalg2-vector-ex1.gif" alt="{\left.\middle({\begin{matrix}{x+y}\\{3}\\{7}\end{matrix}}\middle)\right.}"></img></p>
+      </blockquote>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;(&lt;/mo&gt;
+           &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;/mrow&gt;
+	   &lt;mo&gt;,&lt;/mo&gt;
+           &lt;mn&gt;3&lt;/mn&gt;
+	   &lt;mo&gt;,&lt;/mo&gt;
+           &lt;mn&gt;7&lt;/mn&gt;
+           &lt;mo&gt;)&lt;/mo&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/linalg2-vector-ex1-2.gif" alt="{\left({x+y},{3},{7}\right)}"></img></p>
+      </blockquote>
+
+     </div>
+
+     
+     <p>A matrix is regarded as made up of matrix rows, each of which can be
+     thought of as a special type of vector.</p>
+
+     <p>Note that the behavior of the <code class="element">matrix</code> and <code class="element">matrixrow</code> elements is
+     substantially different from the <code class="element">mtable</code> and <code class="element">mtr</code> presentation
+     elements.</p>
+
+     <p>The <code class="element">matrix</code> element is a <em>constructor</em>
+     element, so the entries may be given explicitly as child elements,
+     or specified by rule as described in <a href="#contm2_container_constructor"></a>.  In the latter case, the
+     entries are specified by providing a function and a 2-dimensional
+     domain of application.  The entries of the matrix correspond to
+     the values obtained by evaluating the function at the points of
+     the domain.</p>
+
+     <div id="linalg6.matrix.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;matrix&gt;
+           &lt;bvar&gt;&lt;ci type="integer"&gt;i&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;bvar&gt;&lt;ci type="integer"&gt;j&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;condition&gt;
+             &lt;apply&gt;&lt;and/&gt;
+               &lt;apply&gt;&lt;in/&gt;
+                 &lt;ci&gt;i&lt;/ci&gt;
+                 &lt;interval&gt;&lt;ci&gt;1&lt;/ci&gt;&lt;ci&gt;5&lt;/ci&gt;&lt;/interval&gt;
+               &lt;/apply&gt;
+               &lt;apply&gt;&lt;in/&gt;
+                 &lt;ci&gt;j&lt;/ci&gt;
+                 &lt;interval&gt;&lt;ci&gt;5&lt;/ci&gt;&lt;ci&gt;9&lt;/ci&gt;&lt;/interval&gt;
+               &lt;/apply&gt;
+             &lt;/apply&gt;
+           &lt;/condition&gt;
+           &lt;apply&gt;&lt;power/&gt;&lt;ci&gt;i&lt;/ci&gt;&lt;ci&gt;j&lt;/ci&gt;&lt;/apply&gt;
+         &lt;/matrix&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mo&gt;[&lt;/mo&gt;
+           &lt;msub&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;
+           &lt;mo&gt;|&lt;/mo&gt;
+           &lt;mrow&gt;
+             &lt;msub&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;
+             &lt;mo&gt;=&lt;/mo&gt;
+             &lt;msup&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/msup&gt;
+           &lt;/mrow&gt;
+           &lt;mo&gt;;&lt;/mo&gt;
+           &lt;mrow&gt;
+             &lt;mrow&gt;
+               &lt;mi&gt;i&lt;/mi&gt;
+               &lt;mo&gt;&amp;#x2208;&lt;/mo&gt;
+               &lt;mrow&gt;&lt;mo&gt;[&lt;/mo&gt;&lt;mi&gt;1&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;5&lt;/mi&gt;&lt;mo&gt;]&lt;/mo&gt;&lt;/mrow&gt;
+             &lt;/mrow&gt;
+             &lt;mo&gt;&amp;#x2227;&lt;/mo&gt;
+             &lt;mrow&gt;
+               &lt;mi&gt;j&lt;/mi&gt;
+               &lt;mo&gt;&amp;#x2208;&lt;/mo&gt;
+               &lt;mrow&gt;&lt;mo&gt;[&lt;/mo&gt;&lt;mi&gt;5&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;9&lt;/mi&gt;&lt;mo&gt;]&lt;/mo&gt;&lt;/mrow&gt;
+             &lt;/mrow&gt;
+           &lt;/mrow&gt;
+           &lt;mo&gt;]&lt;/mo&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/linalg6-matrix-ex1.gif" alt="{\left.[\msub{m}{{i,j}}\middle|{\msub{m}{{i,j}}=\msup{i}{j}};{{i\unicode{8712}{\left[1,5\right]}}\unicode{8743}{j\unicode{8712}{\left[5,9\right]}}}]\right.}"></img></p>
+      </blockquote>
+
+     </div>
+
+          <p>Matrix rows are not directly rendered by themselves outside of the
+     context of a matrix.</p>
 
       </section>
     <section>
@@ -3611,6 +3843,68 @@
      semantics of which is essentially to take the conjunction of applying
      the predicate to elements of the domain two at a time.</p>
 
+     <p>The <code class="element">eq</code> elements represents the equality relation. While equality is a binary relation,
+     <span><code class="element">eq</code></span> may be used with more than two arguments, denoting a chain
+     of equalities, as described in <a href="#contm2_nary_reln"></a>.</p>
+
+     <div id="relation1.eq.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;eq/&gt;
+           &lt;cn type="rational"&gt;2&lt;sep/&gt;4&lt;/cn&gt;
+           &lt;cn type="rational"&gt;1&lt;sep/&gt;2&lt;/cn&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mrow&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;/&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/mrow&gt;
+           &lt;mo&gt;=&lt;/mo&gt;
+           &lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;/&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/relation1-eq-ex1.gif" alt="{{{2}/{4}}={{1}/{2}}}"></img></p>
+      </blockquote>
+     </div>
+
+         <p>The <code class="element">neq</code> element represents the binary inequality
+     relation, i.e. the relation "not equal to" which returns true unless
+     the two arguments are equal.</p>
+
+          <p>The <code class="element">gt</code> element represents the "greater than" function
+     which returns true if the first argument is greater than the second, and
+     returns false otherwise. While this is a binary relation,
+     <code class="element">gt</code> may be used with more than two arguments, denoting a chain
+     of inequalities, as described in <a href="#contm2_nary_reln"></a>.</p>
+
+     
+     <p>The <code class="element">lt</code> element represents the "less than" function
+     which returns true if the first argument is less than the second, and
+     returns false otherwise. While this is a binary relation,
+     <code class="element">lt</code> may be used with more than two arguments, denoting a chain
+     of inequalities, as described in <a href="#contm2_nary_reln"></a>.</p>
+
+     
+     <p>The <code class="element">geq</code> element represents the "greater than or equal to" function
+     which returns true if the first argument is greater than or equal to
+     the second, and returns false otherwise. While this is a binary relation,
+     <code class="element">geq</code> may be used with more than two arguments, denoting a chain
+     of inequalities, as described in <a href="#contm2_nary_reln"></a>.</p>
+
+     <p>The <code class="element">leq</code> element represents the "less than or equal to" function
+     which returns true if the first argument is less than or equal to
+     the second, and returns false otherwise. While this is a binary relation,
+     <code class="element">leq</code> may be used with more than two arguments, denoting a chain
+     of inequalities, as described in <a href="#contm2_nary_reln"></a>.</p>
 
 
     </section>
@@ -3666,6 +3960,66 @@
 
 
 
+     <p>The <code class="element">subset</code> element represents the subset relation.  It is used to denote that the
+     first argument is a subset of the second.  As described in <a href="#contm2_nary_reln"></a>, it may also be used as an n-ary operator to express
+     that each argument is a subset of its predecessor.</p>
+
+     <div id="set1.subset.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;subset/&gt;
+           &lt;ci type="set"&gt;A&lt;/ci&gt;
+           &lt;ci type="set"&gt;B&lt;/ci&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2286;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-subset-ex1.gif" alt="{A\unicode{8838}B}"></img></p>
+      </blockquote>
+     </div>
+
+          <p>The <code class="element">prsubset</code> element represents the proper subset
+     relation, i.e. that the first argument is a proper subset of the
+     second.  As described in <a href="#contm2_nary_reln"></a>, it may
+     also be used as an n-ary operator to express that each argument is a
+     proper subset of its predecessor.</p>
+
+     <div id="set1.prsubset.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;prsubset/&gt;
+           &lt;ci type="set"&gt;A&lt;/ci&gt;
+           &lt;ci type="set"&gt;B&lt;/ci&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2282;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/set1-prsubset-ex1.gif" alt="{A\unicode{8834}B}"></img></p>
+      </blockquote>
+     </div>
+
 	</section>
 	
     <section>
@@ -3717,6 +4071,148 @@
      constructed from the explicitly supplied arguments according to the
      following rule.</p>
 
+
+     <p>The <code class="element">min</code> element denotes the minimum function, which returns the smallest of
+     the arguments to which it is applied.  Its arguments may be explicitly specified in
+     the
+     enclosing <code class="element">apply</code> element, or specified using qualifier
+     elements as described in <a href="#contm2_nary_unary"></a>.  Note that when applied to infinite sets of arguments, no
+     minimal argument may exist.</p>
+
+     <div id="minmax1.min.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;min/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;ci&gt;b&lt;/ci&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mi&gt;min&lt;/mi&gt;
+           &lt;mrow&gt;&lt;mo&gt;{&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo&gt;}&lt;/mo&gt;&lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/minmax1-min-ex1.gif" alt="{{\minormal{min}}{\left.\middle\{a,b\middle\}\right.}}"></img></p>
+      </blockquote>
+     </div>
+
+     <div id="minmax1.big_min.ex2" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;min/&gt;
+           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;condition&gt;
+             &lt;apply&gt;&lt;notin/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci type="set"&gt;B&lt;/ci&gt;&lt;/apply&gt;
+           &lt;/condition&gt;
+           &lt;apply&gt;&lt;power/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;cn&gt;2&lt;/cn&gt;&lt;/apply&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mi&gt;min&lt;/mi&gt;
+           &lt;mrow&gt;&lt;mo&gt;{&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;|&lt;/mo&gt;
+             &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x2209;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
+             &lt;mo&gt;}&lt;/mo&gt;
+           &lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/minmax1-big_min-ex2.gif" alt="{{\minormal{min}}{\left.\middle\{x^2\middle|{x\unicode{8713}B}\middle\}\right.}}"></img></p>
+      </blockquote>
+     </div>
+
+          <p>The <code class="element">max</code> element denotes the maximum function, which
+     returns the largest of the arguments to which it is applied.  Its
+     arguments may be explicitly specified in the enclosing
+     <code class="element">apply</code> element, or specified using qualifier elements
+     as described in <a href="#contm2_nary_unary"></a>.  Note that when applied to
+     infinite sets of arguments, no maximal argument may exist.</p>
+
+     <div id="minmax1.max.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;max/&gt;&lt;cn&gt;2&lt;/cn&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;cn&gt;5&lt;/cn&gt;&lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mi&gt;max&lt;/mi&gt;
+           &lt;mrow&gt;
+             &lt;mo&gt;{&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;mo&gt;}&lt;/mo&gt;
+           &lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/minmax1-max-ex1.gif" alt="{{\minormal{max}}{\left.\middle\{{2},{3},{5}\middle\}\right.}}"></img></p>
+      </blockquote>
+     </div>
+
+     <div id="minmax1.big_max.ex1" class="mathml-example">
+      <p>Content MathML</p>
+
+      <div class="example mathml mml4c">
+       <pre>
+         &lt;apply&gt;&lt;max/&gt;
+           &lt;bvar&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/bvar&gt;
+           &lt;condition&gt;
+             &lt;apply&gt;&lt;in/&gt;
+               &lt;ci&gt;y&lt;/ci&gt;
+               &lt;interval&gt;&lt;cn&gt;0&lt;/cn&gt;&lt;cn&gt;1&lt;/cn&gt;&lt;/interval&gt;
+             &lt;/apply&gt;
+           &lt;/condition&gt;
+           &lt;apply&gt;&lt;power/&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;/apply&gt;
+         &lt;/apply&gt;
+       </pre>
+      </div>
+
+      <p>Sample Presentation</p>
+
+      <div class="example mathml mmlcore">
+       <pre>
+         &lt;mrow&gt;
+           &lt;mi&gt;max&lt;/mi&gt;
+           &lt;mrow&gt;
+             &lt;mo&gt;{&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;|&lt;/mo&gt;
+             &lt;mrow&gt;
+               &lt;msup&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;
+               &lt;mo&gt;&amp;#x2208;&lt;/mo&gt;
+               &lt;mrow&gt;&lt;mo&gt;[&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;]&lt;/mo&gt;&lt;/mrow&gt;
+             &lt;/mrow&gt;
+             &lt;mo&gt;}&lt;/mo&gt;
+           &lt;/mrow&gt;
+         &lt;/mrow&gt;
+       </pre>
+      </div>
+
+      <blockquote>
+       <p><img src="image/minmax1-big_max-ex1.gif" alt="{{\minormal{max}}{\left.\middle\{y^3\middle|{y\unicode{8712}{\left[{0},{1}\right]}}\middle\}\right.}}"></img></p>
+      </blockquote>
+     </div>
 
 
     </section>
@@ -3826,7 +4322,7 @@
     <section>
      <h5 id="contm2_binary_logical">binary-logical:
      <code class="defn emptytag">&lt;implies/&gt;</code>,
-     <code class="defn emptytag">&lt;equivalent/&gt;</code>,
+     <code class="defn emptytag">&lt;equivalent/&gt;</code>
      </h5>
 
           <table class="syntax data">
@@ -6250,181 +6746,7 @@
      </div>
     </section>
 
-    <section>
-     <h5 id="contm2_max">Maximum <code class="defn emptytag">&lt;max/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary_unary">nary-minmax</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">max</code> element denotes the maximum function, which
-     returns the largest of the arguments to which it is applied.  Its
-     arguments may be explicitly specified in the enclosing
-     <code class="element">apply</code> element, or specified using qualifier elements
-     as described in <a href="#contm2_nary_unary"></a>.  Note that when applied to
-     infinite sets of arguments, no maximal argument may exist.</p>
-
-     <div id="minmax1.max.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;max/&gt;&lt;cn&gt;2&lt;/cn&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;cn&gt;5&lt;/cn&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mi&gt;max&lt;/mi&gt;
-           &lt;mrow&gt;
-             &lt;mo&gt;{&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;mo&gt;}&lt;/mo&gt;
-           &lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/minmax1-max-ex1.gif" alt="{{\minormal{max}}{\left.\middle\{{2},{3},{5}\middle\}\right.}}"></img></p>
-      </blockquote>
-     </div>
-
-     <div id="minmax1.big_max.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;max/&gt;
-           &lt;bvar&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;condition&gt;
-             &lt;apply&gt;&lt;in/&gt;
-               &lt;ci&gt;y&lt;/ci&gt;
-               &lt;interval&gt;&lt;cn&gt;0&lt;/cn&gt;&lt;cn&gt;1&lt;/cn&gt;&lt;/interval&gt;
-             &lt;/apply&gt;
-           &lt;/condition&gt;
-           &lt;apply&gt;&lt;power/&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;/apply&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mi&gt;max&lt;/mi&gt;
-           &lt;mrow&gt;
-             &lt;mo&gt;{&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;|&lt;/mo&gt;
-             &lt;mrow&gt;
-               &lt;msup&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;
-               &lt;mo&gt;&amp;#x2208;&lt;/mo&gt;
-               &lt;mrow&gt;&lt;mo&gt;[&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;]&lt;/mo&gt;&lt;/mrow&gt;
-             &lt;/mrow&gt;
-             &lt;mo&gt;}&lt;/mo&gt;
-           &lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/minmax1-big_max-ex1.gif" alt="{{\minormal{max}}{\left.\middle\{y^3\middle|{y\unicode{8712}{\left[{0},{1}\right]}}\middle\}\right.}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_min">Minimum <code class="defn emptytag">&lt;min/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary_unary">nary-minmax</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">min</code> element denotes the minimum function, which returns the smallest of
-     the arguments to which it is applied.  Its arguments may be explicitly specified in
-     the
-     enclosing <code class="element">apply</code> element, or specified using qualifier
-     elements as described in <a href="#contm2_nary_unary"></a>.  Note that when applied to infinite sets of arguments, no
-     minimal argument may exist.</p>
-
-     <div id="minmax1.min.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;min/&gt;&lt;ci&gt;a&lt;/ci&gt;&lt;ci&gt;b&lt;/ci&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mi&gt;min&lt;/mi&gt;
-           &lt;mrow&gt;&lt;mo&gt;{&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo&gt;}&lt;/mo&gt;&lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/minmax1-min-ex1.gif" alt="{{\minormal{min}}{\left.\middle\{a,b\middle\}\right.}}"></img></p>
-      </blockquote>
-     </div>
-
-     <div id="minmax1.big_min.ex2" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;min/&gt;
-           &lt;bvar&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;condition&gt;
-             &lt;apply&gt;&lt;notin/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci type="set"&gt;B&lt;/ci&gt;&lt;/apply&gt;
-           &lt;/condition&gt;
-           &lt;apply&gt;&lt;power/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;cn&gt;2&lt;/cn&gt;&lt;/apply&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mi&gt;min&lt;/mi&gt;
-           &lt;mrow&gt;&lt;mo&gt;{&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;|&lt;/mo&gt;
-             &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x2209;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
-             &lt;mo&gt;}&lt;/mo&gt;
-           &lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/minmax1-big_min-ex2.gif" alt="{{\minormal{min}}{\left.\middle\{x^2\middle|{x\unicode{8713}B}\middle\}\right.}}"></img></p>
-      </blockquote>
-     </div>
-
-    </section>
-
+        
     <section>
      <h5 id="contm2_minus">Subtraction <code class="defn emptytag">&lt;minus/&gt;</code></h5>
 
@@ -7315,308 +7637,11 @@
    <section>
     <h4>Relations</h4>
 
-    <section>
-     <h5 id="contm2_eq">Equals <code class="defn emptytag">&lt;eq/&gt;</code></h5>
 
-     <table class="syntax data">
 
-      <tbody>
 
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary_reln">nary-reln</a></td>
-       </tr>
-      </tbody>
-     </table>
 
-     <p>The <code class="element">eq</code> elements represents the equality relation. While equality is a binary relation,
-     <span><code class="element">eq</code></span> may be used with more than two arguments, denoting a chain
-     of equalities, as described in <a href="#contm2_nary_reln"></a>.</p>
 
-     <div id="relation1.eq.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;eq/&gt;
-           &lt;cn type="rational"&gt;2&lt;sep/&gt;4&lt;/cn&gt;
-           &lt;cn type="rational"&gt;1&lt;sep/&gt;2&lt;/cn&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mrow&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;/&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/mrow&gt;
-           &lt;mo&gt;=&lt;/mo&gt;
-           &lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;/&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/relation1-eq-ex1.gif" alt="{{{2}/{4}}={{1}/{2}}}"></img></p>
-      </blockquote>
-     </div>
-
-    </section>
-
-    <section>
-     <h5 id="contm2_neq">Not Equals <code class="defn emptytag">&lt;neq/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_binary">binary-reln</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">neq</code> element represents the binary inequality
-     relation, i.e. the relation "not equal to" which returns true unless
-     the two arguments are equal.</p>
-
-     <div id="relation1.neq.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;neq/&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;cn&gt;4&lt;/cn&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;&amp;#x2260;&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/relation1-neq-ex1.gif" alt="{{3}\unicode{8800}{4}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_gt">Greater than <code class="defn emptytag">&lt;gt/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary_reln">nary-reln</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">gt</code> element represents the "greater than" function
-     which returns true if the first argument is greater than the second, and
-     returns false otherwise. While this is a binary relation,
-     <code class="element">gt</code> may be used with more than two arguments, denoting a chain
-     of inequalities, as described in <a href="#contm2_nary_reln"></a>.</p>
-
-     <div id="relation1.gt.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;gt/&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;cn&gt;2&lt;/cn&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;&amp;gt;&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/relation1-gt-ex1.gif" alt="{{3}\gt{2}}"></img></p>
-      </blockquote>
-     </div>
-
-    </section>
-
-    <section>
-     <h5 id="contm2_lt">Less Than <code class="defn emptytag">&lt;lt/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary_reln">nary-reln</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">lt</code> element represents the "less than" function
-     which returns true if the first argument is less than the second, and
-     returns false otherwise. While this is a binary relation,
-     <code class="element">lt</code> may be used with more than two arguments, denoting a chain
-     of inequalities, as described in <a href="#contm2_nary_reln"></a>.</p>
-
-     <div id="relation1.lt.ex1" class="mathml-example">
-
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;lt/&gt;&lt;cn&gt;2&lt;/cn&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;cn&gt;4&lt;/cn&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;&amp;lt;&lt;/mo&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;&amp;lt;&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/relation1-lt-ex1.gif" alt="{{2}\lt{3}\lt{4}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_geq">Greater Than or Equal <code class="defn emptytag">&lt;geq/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary_reln">nary-reln</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">geq</code> element represents the "greater than or equal to" function
-     which returns true if the first argument is greater than or equal to
-     the second, and returns false otherwise. While this is a binary relation,
-     <code class="element">geq</code> may be used with more than two arguments, denoting a chain
-     of inequalities, as described in <a href="#contm2_nary_reln"></a>.</p>
-
-     <div class="strict-mathml-example" id="relation1.geq.ex1">
-
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;geq/&gt;&lt;cn&gt;4&lt;/cn&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Strict Content MathML</p>
-
-      <div class="example strict-mathml">
-       <pre>
-         &lt;apply&gt;&lt;csymbol cd="fns2"&gt;predicate_on_list&lt;/csymbol&gt;
-           &lt;csymbol cd="reln1"&gt;geq&lt;/csymbol&gt;
-           &lt;apply&gt;&lt;csymbol cd="list1"&gt;list&lt;/csymbol&gt;
-             &lt;cn&gt;4&lt;/cn&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;cn&gt;3&lt;/cn&gt;
-           &lt;/apply&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mn&gt;4&lt;/mn&gt;&lt;mo&gt;&amp;#x2265;&lt;/mo&gt;
-           &lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;&amp;#x2265;&lt;/mo&gt;
-           &lt;mn&gt;3&lt;/mn&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/relation1-geq-ex1.gif" alt="{{4}\unicode{8805}{3}\unicode{8805}{3}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_leq">Less Than or Equal <code class="defn emptytag">&lt;leq/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary_reln">nary-reln</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">leq</code> element represents the "less than or equal to" function
-     which returns true if the first argument is less than or equal to
-     the second, and returns false otherwise. While this is a binary relation,
-     <code class="element">leq</code> may be used with more than two arguments, denoting a chain
-     of inequalities, as described in <a href="#contm2_nary_reln"></a>.</p>
-
-     <div class="strict-mathml-example" id="relation1.leq.ex1">
-
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;leq/&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;cn&gt;4&lt;/cn&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Strict Content MathML</p>
-
-      <div class="example strict-mathml">
-       <pre>
-         &lt;apply&gt;&lt;csymbol cd="fns2"&gt;predicate_on_list&lt;/csymbol&gt;
-           &lt;csymbol cd="reln1"&gt;leq&lt;/csymbol&gt;
-           &lt;apply&gt;&lt;csymbol cd="list1"&gt;list&lt;/csymbol&gt;
-             &lt;cn&gt;3&lt;/cn&gt;&lt;cn&gt;3&lt;/cn&gt;&lt;cn&gt;4&lt;/cn&gt;
-           &lt;/apply&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;
-           &lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;
-           &lt;mn&gt;4&lt;/mn&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/relation1-leq-ex1.gif" alt="{{3}\unicode{8804}{3}\unicode{8804}{4}}"></img></p>
-      </blockquote>
-     </div>
-    </section>
 
     <section>
      <h5 id="contm2_equivalent">Equivalent <code class="defn emptytag">&lt;equivalent/&gt;</code></h5>
@@ -8430,155 +8455,7 @@
      </div>
     </section>
 
-    <section>
-     <h5 id="contm2_union">Union <code class="defn emptytag">&lt;union/&gt;</code></h5>
 
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary">nary-set</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>The <code class="element">union</code> element is used to denote the n-ary union of sets. It takes sets as arguments,
-     and denotes the set that contains all the elements that occur in any
-     of them.</p>
-
-     <p>Arguments may be explicitly specified.</p>
-
-     <div id="set1.union.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;union/&gt;&lt;ci&gt;A&lt;/ci&gt;&lt;ci&gt;B&lt;/ci&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x222a;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-union-ex1.gif" alt="{A\unicode{8746}B}"></img></p>
-      </blockquote>
-     </div>
-
-     <p>Arguments may also be specified using qualifier elements as described in
-     <a href="#contm2_nary"></a>. operator element can be used as a binding
-     operator to construct the union over a collection of sets.</p>
-
-     <div id="set1.big_union.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;union/&gt;
-           &lt;bvar&gt;&lt;ci type="set"&gt;S&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;domainofapplication&gt;
-             &lt;ci type="list"&gt;L&lt;/ci&gt;
-           &lt;/domainofapplication&gt;
-           &lt;ci type="set"&gt; S&lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;munder&gt;&lt;mo&gt;&amp;#x22c3;&lt;/mo&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;/munder&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-big_union-ex1.gif" alt="{\munder{\unicode{8899}}{L}S}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_intersect">Intersect <code class="defn emptytag">&lt;intersect/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary">nary-set</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">intersect</code> element is used to denote the n-ary
-     intersection of sets. It takes sets as arguments, and denotes the
-     set that contains all the elements that occur in all of them.  Its arguments may be
-     explicitly specified in the
-     enclosing <code class="element">apply</code> element, or specified using qualifier
-     elements as described in <a href="#contm2_nary"></a>.</p>
-
-     <div id="set1.intersect.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;intersect/&gt;
-           &lt;ci type="set"&gt; A &lt;/ci&gt;
-           &lt;ci type="set"&gt; B &lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2229;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-intersect-ex1.gif" alt="{A\unicode{8745}B}"></img></p>
-      </blockquote>
-     </div>
-
-     <div id="set1.big_intersect.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;intersect/&gt;
-           &lt;bvar&gt;&lt;ci type="set"&gt;S&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;domainofapplication&gt;&lt;ci type="list"&gt;L&lt;/ci&gt;&lt;/domainofapplication&gt;
-           &lt;ci type="set"&gt; S &lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;munder&gt;&lt;mo&gt;&amp;#x22c2;&lt;/mo&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;/munder&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-big_intersect-ex1.gif" alt="{\munder{\unicode{8898}}{L}S}"></img></p>
-      </blockquote>
-
-     </div>
-    </section>
 
     <section>
      <h5 id="contm2_in">Set inclusion <code class="defn emptytag">&lt;in/&gt;</code></h5>
@@ -8666,126 +8543,8 @@
 
     </section>
 
-    <section>
-     <h5 id="contm2_subset">Subset <code class="defn emptytag">&lt;subset/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary_reln">nary-set-reln</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/set1#subset">subset</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">subset</code> element represents the subset relation.  It is used to denote that the
-     first argument is a subset of the second.  As described in <a href="#contm2_nary_reln"></a>, it may also be used as an n-ary operator to express
-     that each argument is a subset of its predecessor.</p>
-
-     <div id="set1.subset.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;subset/&gt;
-           &lt;ci type="set"&gt;A&lt;/ci&gt;
-           &lt;ci type="set"&gt;B&lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2286;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-subset-ex1.gif" alt="{A\unicode{8838}B}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_prsubset">Proper Subset <code class="defn emptytag">&lt;prsubset/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary_reln">nary-set-reln</a></td>
-       </tr>
-
-       <tr>
-	<th>Attributes</th>
-	<td><code class="parsing_ref">CommonAtt</code>, <code class="parsing_ref">DefEncAtt</code></td>
-       </tr>
-
-       <tr>
-	<th>Content</th>
-	<td>Empty</td>
-       </tr>
-
-       <tr>
-	<th>OM Symbols</th>
-	<td><a class="omsymbol" href="https://openmath.org/cd/set1#prsubset">prsubset</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">prsubset</code> element represents the proper subset
-     relation, i.e. that the first argument is a proper subset of the
-     second.  As described in <a href="#contm2_nary_reln"></a>, it may
-     also be used as an n-ary operator to express that each argument is a
-     proper subset of its predecessor.</p>
-
-     <div id="set1.prsubset.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;prsubset/&gt;
-           &lt;ci type="set"&gt;A&lt;/ci&gt;
-           &lt;ci type="set"&gt;B&lt;/ci&gt;
-         &lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2282;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-prsubset-ex1.gif" alt="{A\unicode{8834}B}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
+    
+    
     <section>
      <h5 id="contm2_notsubset">Not Subset <code class="defn emptytag">&lt;notsubset/&gt;</code></h5>
 
@@ -8980,48 +8739,7 @@
      </div>
     </section>
 
-    <section>
-     <h5 id="contm2_cartesianproduct">Cartesian product <code class="defn emptytag">&lt;cartesianproduct/&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary">nary-set</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>The <code class="element">cartesianproduct</code> element is used to represents the
-     Cartesian product operator. It takes sets as arguments, which may be
-     explicitly specified in the enclosing <code class="element">apply</code> element, or
-     specified using qualifier elements as described in <a href="#contm2_nary"></a>.</p>
-
-     <div id="set1.cartesianproduct.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;apply&gt;&lt;cartesianproduct/&gt;&lt;ci&gt;A&lt;/ci&gt;&lt;ci&gt;B&lt;/ci&gt;&lt;/apply&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#xd7;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/set1-cartesianproduct-ex1.gif" alt="{A\unicode{215}B}"></img></p>
-      </blockquote>
-     </div>
-    </section>
-
+    
    </section>
 
    <section>
@@ -10099,199 +9817,9 @@
    <section>
     <h4>Linear Algebra</h4>
 
-    <section>
-     <h5 id="contm2_vector">Vector <code class="defn starttag">&lt;vector&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary">nary-constructor</a></td>
-       </tr>
-
-      </tbody>
-     </table>
-
-     <p>A vector is an ordered n-tuple of values representing an element of an
-     n-dimensional vector space.</p>
-
-     <p>For purposes of interaction with matrices and matrix multiplication, vectors are
-     regarded as equivalent to a matrix consisting of a single column, and the transpose
-     of
-     a vector as a matrix consisting of a single row. </p>
-
-     <p>The components of a <code class="element">vector</code> may be given explicitly as
-     child elements, or specified by rule as described in <a href="#contm2_container_constructor"></a>.</p>
-
-     <div id="linalg2.vector.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;vector&gt;
-           &lt;apply&gt;&lt;plus/&gt;&lt;ci&gt;x&lt;/ci&gt;&lt;ci&gt;y&lt;/ci&gt;&lt;/apply&gt;
-           &lt;cn&gt;3&lt;/cn&gt;
-           &lt;cn&gt;7&lt;/cn&gt;
-         &lt;/vector&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;(&lt;/mo&gt;
-           &lt;mtable&gt;
-             &lt;mtr&gt;&lt;mtd&gt;&lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;/mrow&gt;&lt;/mtd&gt;&lt;/mtr&gt;
-             &lt;mtr&gt;&lt;mtd&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/mtd&gt;&lt;/mtr&gt;
-             &lt;mtr&gt;&lt;mtd&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;/mtd&gt;&lt;/mtr&gt;
-           &lt;/mtable&gt;
-           &lt;mo&gt;)&lt;/mo&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/linalg2-vector-ex1.gif" alt="{\left.\middle({\begin{matrix}{x+y}\\{3}\\{7}\end{matrix}}\middle)\right.}"></img></p>
-      </blockquote>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;(&lt;/mo&gt;
-           &lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;/mrow&gt;
-	   &lt;mo&gt;,&lt;/mo&gt;
-           &lt;mn&gt;3&lt;/mn&gt;
-	   &lt;mo&gt;,&lt;/mo&gt;
-           &lt;mn&gt;7&lt;/mn&gt;
-           &lt;mo&gt;)&lt;/mo&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/linalg2-vector-ex1-2.gif" alt="{\left({x+y},{3},{7}\right)}"></img></p>
-      </blockquote>
-
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_matrix">Matrix <code class="defn starttag">&lt;matrix&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary">nary-constructor</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>A matrix is regarded as made up of matrix rows, each of which can be
-     thought of as a special type of vector.</p>
-
-     <p>Note that the behavior of the <code class="element">matrix</code> and <code class="element">matrixrow</code> elements is
-     substantially different from the <code class="element">mtable</code> and <code class="element">mtr</code> presentation
-     elements.</p>
-
-     <p>The <code class="element">matrix</code> element is a <em>constructor</em>
-     element, so the entries may be given explicitly as child elements,
-     or specified by rule as described in <a href="#contm2_container_constructor"></a>.  In the latter case, the
-     entries are specified by providing a function and a 2-dimensional
-     domain of application.  The entries of the matrix correspond to
-     the values obtained by evaluating the function at the points of
-     the domain.</p>
-
-     <div id="linalg6.matrix.ex1" class="mathml-example">
-      <p>Content MathML</p>
-
-      <div class="example mathml mml4c">
-       <pre>
-         &lt;matrix&gt;
-           &lt;bvar&gt;&lt;ci type="integer"&gt;i&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;bvar&gt;&lt;ci type="integer"&gt;j&lt;/ci&gt;&lt;/bvar&gt;
-           &lt;condition&gt;
-             &lt;apply&gt;&lt;and/&gt;
-               &lt;apply&gt;&lt;in/&gt;
-                 &lt;ci&gt;i&lt;/ci&gt;
-                 &lt;interval&gt;&lt;ci&gt;1&lt;/ci&gt;&lt;ci&gt;5&lt;/ci&gt;&lt;/interval&gt;
-               &lt;/apply&gt;
-               &lt;apply&gt;&lt;in/&gt;
-                 &lt;ci&gt;j&lt;/ci&gt;
-                 &lt;interval&gt;&lt;ci&gt;5&lt;/ci&gt;&lt;ci&gt;9&lt;/ci&gt;&lt;/interval&gt;
-               &lt;/apply&gt;
-             &lt;/apply&gt;
-           &lt;/condition&gt;
-           &lt;apply&gt;&lt;power/&gt;&lt;ci&gt;i&lt;/ci&gt;&lt;ci&gt;j&lt;/ci&gt;&lt;/apply&gt;
-         &lt;/matrix&gt;
-       </pre>
-      </div>
-
-      <p>Sample Presentation</p>
-
-      <div class="example mathml mmlcore">
-       <pre>
-         &lt;mrow&gt;
-           &lt;mo&gt;[&lt;/mo&gt;
-           &lt;msub&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;
-           &lt;mo&gt;|&lt;/mo&gt;
-           &lt;mrow&gt;
-             &lt;msub&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;
-             &lt;mo&gt;=&lt;/mo&gt;
-             &lt;msup&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/msup&gt;
-           &lt;/mrow&gt;
-           &lt;mo&gt;;&lt;/mo&gt;
-           &lt;mrow&gt;
-             &lt;mrow&gt;
-               &lt;mi&gt;i&lt;/mi&gt;
-               &lt;mo&gt;&amp;#x2208;&lt;/mo&gt;
-               &lt;mrow&gt;&lt;mo&gt;[&lt;/mo&gt;&lt;mi&gt;1&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;5&lt;/mi&gt;&lt;mo&gt;]&lt;/mo&gt;&lt;/mrow&gt;
-             &lt;/mrow&gt;
-             &lt;mo&gt;&amp;#x2227;&lt;/mo&gt;
-             &lt;mrow&gt;
-               &lt;mi&gt;j&lt;/mi&gt;
-               &lt;mo&gt;&amp;#x2208;&lt;/mo&gt;
-               &lt;mrow&gt;&lt;mo&gt;[&lt;/mo&gt;&lt;mi&gt;5&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;9&lt;/mi&gt;&lt;mo&gt;]&lt;/mo&gt;&lt;/mrow&gt;
-             &lt;/mrow&gt;
-           &lt;/mrow&gt;
-           &lt;mo&gt;]&lt;/mo&gt;
-         &lt;/mrow&gt;
-       </pre>
-      </div>
-
-      <blockquote>
-       <p><img src="image/linalg6-matrix-ex1.gif" alt="{\left.[\msub{m}{{i,j}}\middle|{\msub{m}{{i,j}}=\msup{i}{j}};{{i\unicode{8712}{\left[1,5\right]}}\unicode{8743}{j\unicode{8712}{\left[5,9\right]}}}]\right.}"></img></p>
-      </blockquote>
-
-     </div>
-    </section>
-
-    <section>
-     <h5 id="contm2_matrixrow">Matrix row <code class="defn starttag">&lt;matrixrow&gt;</code></h5>
-
-     <table class="syntax data">
-
-      <tbody>
-
-       <tr>
-	<th>Class</th>
-	<td><a class="intref" href="#contm2_nary">nary-constructor</a></td>
-       </tr>
-      </tbody>
-     </table>
-
-     <p>This element is an n-ary constructor used to represent rows of matrices.</p>
-
-     <p>Matrix rows are not directly rendered by themselves outside of the
-     context of a matrix.</p>
-    </section>
-
+    
+    
+    
     <section>
      <h5 id="contm2_determinant">Determinant <code class="defn emptytag">&lt;determinant/&gt;</code></h5>
 
