@@ -700,6 +700,55 @@
 
   </section>
 
+  <section class="fold">
+    <h5 id="presm_mo_linebreaks">Examples of Linebreaking</h5>
+    
+    <p>The following example demonstrates forced linebreaks and forced alignment:</p>
+    
+    <div class="example mathml">
+     <pre>
+       &lt;mrow&gt;
+         &lt;mrow&gt;  &lt;mi&gt;f&lt;/mi&gt; &lt;mo&gt;&amp;ApplyFunction;&lt;/mo&gt; &lt;mo&gt;(&lt;/mo&gt; &lt;mi&gt;x&lt;/mi&gt; &lt;mo&gt;)&lt;/mo&gt;  &lt;/mrow&gt;
+    
+         &lt;mo id='eq1-equals'&gt;=&lt;/mo&gt;
+         &lt;mrow&gt;
+           &lt;msup&gt;
+             &lt;mrow&gt; &lt;mo&gt;(&lt;/mo&gt; &lt;mrow&gt; &lt;mi&gt;x&lt;/mi&gt; &lt;mo&gt;+&lt;/mo&gt; &lt;mn&gt;1&lt;/mn&gt; &lt;/mrow&gt; &lt;mo&gt;)&lt;/mo&gt; &lt;/mrow&gt;
+             &lt;mn&gt;4&lt;/mn&gt;
+           &lt;/msup&gt;
+           &lt;mo linebreak='newline' linebreakstyle='before'
+      indentalign='id' indenttarget='eq1-equals'&gt;=&lt;/mo&gt;
+             &lt;mrow&gt;
+               &lt;msup&gt; &lt;mi&gt;x&lt;/mi&gt; &lt;mn&gt;4&lt;/mn&gt; &lt;/msup&gt;
+               &lt;mo id='eq1-plus'&gt;+&lt;/mo&gt;
+               &lt;mrow&gt;  &lt;mn&gt;4&lt;/mn&gt; &lt;mo&gt;&amp;InvisibleTimes;&lt;/mo&gt; &lt;msup&gt; &lt;mi&gt;x&lt;/mi&gt; &lt;mn&gt;3&lt;/mn&gt; &lt;/msup&gt;  &lt;/mrow&gt;
+               &lt;mo&gt;+&lt;/mo&gt;
+               &lt;mrow&gt;  &lt;mn&gt;6&lt;/mn&gt; &lt;mo&gt;&amp;InvisibleTimes;&lt;/mo&gt; &lt;msup&gt; &lt;mi&gt;x&lt;/mi&gt; &lt;mn&gt;2&lt;/mn&gt; &lt;/msup&gt;  &lt;/mrow&gt;
+    
+               &lt;mo linebreak='newline' linebreakstyle='before'
+      indentalignlast='id' indenttarget='eq1-plus'&gt;+&lt;/mo&gt;
+                 &lt;mrow&gt;  &lt;mn&gt;4&lt;/mn&gt; &lt;mo&gt;&amp;InvisibleTimes;&lt;/mo&gt; &lt;mi&gt;x&lt;/mi&gt;  &lt;/mrow&gt;
+                 &lt;mo&gt;+&lt;/mo&gt;
+                 &lt;mn&gt;1&lt;/mn&gt;
+               &lt;/mrow&gt;
+             &lt;/mrow&gt;
+           &lt;/mrow&gt;
+    </pre>
+    </div>
+    
+    <p>This displays as </p>
+    
+    <blockquote>
+    <p><img src="image/linebreak-example1.png" alt="example with equal and plus signs aligned"></img></p>
+    </blockquote>
+    
+    <p>Note that because <code class="attribute">indentalignlast</code> defaults to <code class="attributevalue">indentalign</code>,
+    in the above example <code class="attribute">indentalign</code> could have been used in place of
+    <code class="attribute">indentalignlast</code>.  Also, the specifying <code>linebreakstyle='before'</code>
+    is not needed because that is the default value.  </p>
+    </section>
+    
+    
  </section>
 
 
@@ -1562,9 +1611,6 @@
 
     </tbody>
    </table>
-
-   <p>Note that the deprecated <code class="attribute">fontstyle</code> attribute
-   defaults in the same way as <code class="attribute">mathvariant</code>, depending on the content.</p>
 
    <p>Note that for purposes of determining equivalences of Math
    Alphanumeric Symbol
@@ -2645,9 +2691,8 @@
    subsection.</p>
 
    <p>Note that, like all rendering rules in MathML, these rules are
-   suggestions rather than requirements.  Furthermore, no attempt is made
-   to specify the rendering completely; rather, enough information is
-   given to make the intended effect of the various rendering attributes
+   suggestions rather than requirements.  
+   The description below is given to make the intended effect of the various rendering attributes
    as clear as possible.
    Detailed layout rules for brower implmentations for operators are given in
    <a href="https://w3c.github.io/mathml-core/#operator-fence-separator-or-accent-mo">MathML Core</a>.
@@ -2810,6 +2855,7 @@
    </section>
 
    <section>
+<<<<<<< HEAD
     <h6>Rationale for definition of embellished operators</h6>
 
     <p>The following notes are included as a rationale for certain aspects
@@ -2856,6 +2902,8 @@
    </section>
 
    <section>
+=======
+>>>>>>> 5a2e688 (A little more work on presentation. Removed a few things and moved the linebreaking examples to be part of the discussion on linebreaking (was sitting by itself).)
     <h6 id="presm_opspacing">Spacing around an operator</h6>
 
     <p>The amount of horizontal space added around an operator (or embellished operator),
@@ -3137,9 +3185,13 @@ work:</p>
    &lt;/mrow&gt;
 </pre>
 </div>
+<<<<<<< HEAD
 
 <p>This displays as
 <img src="image/f3003.gif" alt="x \widearrow{\mathrm{maps~to}} y" align="middle"></img>.</p>
+=======
+</p>
+>>>>>>> 5a2e688 (A little more work on presentation. Removed a few things and moved the linebreaking examples to be part of the discussion on linebreaking (was sitting by itself).)
 </section>
 
 <section>
@@ -3167,6 +3219,7 @@ limitations in fonts or font rendering may result in the final,
 stretched sizes being only approximately the same.</p>
 </section>
 </section>
+<<<<<<< HEAD
 
 <section class="fold">
 <h5 id="presm_mo_linebreaks">Examples of Linebreaking</h5>
@@ -3216,6 +3269,8 @@ in the above example <code class="attribute">indentalign</code> could have been 
 is not needed because that is the default value.  </p>
 </section>
 
+=======
+>>>>>>> 5a2e688 (A little more work on presentation. Removed a few things and moved the linebreaking examples to be part of the discussion on linebreaking (was sitting by itself).)
 </section>
 
 <section>
@@ -3265,6 +3320,7 @@ such elements for <span>&#x201c;tweaking&#x201d;</span> in [[MathML-Notes]].</p>
 
 <div class="example mathml mmlcore">
  <pre>
+<<<<<<< HEAD
    &lt;mtext&gt; Theorem 1: &lt;/mtext&gt;
    &lt;mtext&gt; &amp;ThinSpace; &lt;/mtext&gt;
    &lt;mtext&gt; &amp;ThickSpace;&amp;ThickSpace; &lt;/mtext&gt;
@@ -3286,32 +3342,17 @@ and could be represented as:</p>
 
 <div class="example mathml mmlcore">
  <pre>
+=======
+>>>>>>> 5a2e688 (A little more work on presentation. Removed a few things and moved the linebreaking examples to be part of the discussion on linebreaking (was sitting by itself).)
    &lt;mrow&gt;
-     &lt;mo&gt; there exists &lt;/mo&gt;
-     &lt;mrow&gt;
-       &lt;mrow&gt;
-         &lt;mi&gt; &amp;delta; &lt;/mi&gt;
-         &lt;mo&gt; &amp;gt; &lt;/mo&gt;
-         &lt;mn&gt; 0 &lt;/mn&gt;
-       &lt;/mrow&gt;
-       &lt;mo&gt; such that &lt;/mo&gt;
-       &lt;mrow&gt;
-         &lt;mrow&gt;
-           &lt;mi&gt; f &lt;/mi&gt;
-           &lt;mo&gt; &amp;ApplyFunction; &lt;/mo&gt;
-           &lt;mrow&gt;
-             &lt;mo&gt; ( &lt;/mo&gt;
-             &lt;mi&gt; x &lt;/mi&gt;
-             &lt;mo&gt; ) &lt;/mo&gt;
-           &lt;/mrow&gt;
-         &lt;/mrow&gt;
-         &lt;mo&gt; &amp;lt; &lt;/mo&gt;
-         &lt;mn&gt; 1 &lt;/mn&gt;
-       &lt;/mrow&gt;
-     &lt;/mrow&gt;
+     &lt;mtext&gt; Theorem 1: &lt;/mtext&gt;
+     &lt;mtext&gt; &amp;ThinSpace; &lt;/mtext&gt;
+     &lt;mtext&gt; &amp;ThickSpace;&amp;ThickSpace; &lt;/mtext&gt;
+     &lt;mtext&gt; /* a comment */ &lt;/mtext&gt;
    &lt;/mrow&gt;
 </pre>
 </div>
+<<<<<<< HEAD
 
 
 <p>An example involving an <code class="element">mi</code> element is:
@@ -3342,6 +3383,8 @@ format and spacing for <span>&#x201c;text&#x201d;</span> obtained by using an
 <code class="element">mi</code> element is apt to be spaced more appropriately
 for taking the place of a term within a series than if it appeared in
 an <code class="element">mtext</code> element.</p>
+=======
+>>>>>>> 5a2e688 (A little more work on presentation. Removed a few things and moved the linebreaking examples to be part of the discussion on linebreaking (was sitting by itself).)
 </section>
 </section>
 
