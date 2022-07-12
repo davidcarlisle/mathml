@@ -65,7 +65,7 @@
     reference          := '$' NCName
     application        := intent hint? '(' arguments? ')'
     arguments          := intent ( ',' intent )*
-    hint               := '@' ( 'prefix' | 'infix' | 'postfix' | 'silent' )
+    hint               := '[' NCName? (',' NCName?)* ']'
    </pre>
 
    <p>Here <a href="https://www.w3.org/TR/REC-xml-names/#NT-NCName"><code>NCName</code></a>
@@ -117,15 +117,14 @@
       <li>
        <dfn id="intent-core">Core</dfn>: This is a list of core
       concept names maintained by the Math Working Group.
-      An accessibility system reading MathML attributed with [^core^]
+      An accessibility system reading MathML attributed with [=core=]
       concepts SHOULD use the speech hints provided by the intent
-      definition.</li>
+      definition if no [=hint=] follows the conncept name.</li>
       <li><dfn id="intent-open">Open</dfn>: This is an open list of concepts
       to which contributions are invited.
-      An accessibility system reading MathML attributed with [^open^]
+      An accessibility system reading MathML attributed with [=open=]
       concepts MAY use the speech hints provided by the intent
-      definition but a system
-      may also fall back on reading the identifier name as given.
+      definition  if no [=hint=] follows the conncept name.
       </li>
      </ul>
      <p>When comparing the literal concept name in the <code
@@ -169,32 +168,28 @@
     
     <dt><dfn id="intent_hint">hint</dfn></dt>
     <dd>
+     <p>
      In a function <a data-link-for="intent" data-link-type="dfn"
      href="#intent_application">application</a>, if the function is
-     followed by a [=hint=], the reading of the name may be suppressed,
-     or precede or follow the reading of the arguments, or may be
-     repeated between each argument.
+     followed by a [=hint=], the reading of the expression is controlled
+     by the [=hint=] which supplies a sequence of Names used between the supplied arguments.
+     </p>
+     <p>The length of the hint should be at most one more than the
+     list of arguments.  If the hint list is full length the items
+     (which may be empty denoting silence) are read before the first
+     argument, betwen each argument and after the fial argument.  If
+     the hint list is not longer than the list of arguments, the final
+     hint entry is repeated as often as needed between the arguments
+     and the final, postfix entry is empty.</p>
      <ul>
-      <li>
-       In the case the function name is in the Concept dictionary
-      used by the application, the hint MAY be used in determining the
-      speech text generated. For example <code>union</code> is in the
-      Core dictionary with speech hints `$1 union $2` and `union of
-      $1 and $2`. An intent <code>union @prefix ($a,$b)</code> would
-      be a hint that the latter style is preferred.
-      </li>
-      <li>For the default
-     reading when a Concept Dictionary entry is not used, the text
-     generated from the function head SHOULD be read as specified in
-     the hint:
-     <ul>
-      <li><code>f @prefix ($x,$y)</code>: <q>f of x and y</q></li>
-      <li><code>f @infix ($x,y)  </code>: <q>x f y</q></li>
-      <li><code>f @postix ($x)   </code>: <q>x f</q></li>
-      <li><code>f @silent ($x,$y)</code>: <q>x y</q></li>
+      <li><code style="white-space:pre">f [f-of,and] ($x,$y)                     </code>: <q>f of x and y</q></li>
+      <li><code style="white-space:pre">f [, f] ($x,y)                           </code>: <q>x f y</q></li>
+      <li><code style="white-space:pre">f [, f] ($x)                             </code>: <q>x f</q></li>
+      <li><code style="white-space:pre">f [] ($x,$y)                             </code>: <q>x y</q></li>
+      <li><code style="white-space:pre">sum [,plus] ($w,$x,$y,$z)                </code>: <q>w plus x plus y plus z</q></li>
+      <li><code style="white-space:pre">free-algebra [free, algebra-on] ($r, $x) </code>: <q>free r algebra on x</q></li>
      </ul>
-      </li>
-     </ul>
+
     </dd>
    </dl>
 
@@ -292,11 +287,11 @@
     <ul>
      <li><code>inner-product($x,$y)</code> would be read as <q>inner product of x  and y</q></li>
 
-     <li><code>inner-product @infix ($x,$y)</code> would be read as <q>x inner product y</q></li>
+     <li><code>inner-product [,inner-product] ($x,$y)</code> would be read as <q>x inner product y</q></li>
 
-     <li><code>list @silent ($x,$y)</code> would be read as <q>x y</q></li>
+     <li><code>list [] ($x,$y)</code> would be read as <q>x y</q></li>
 
-     <li><code>semi-factorial @postfix($x)</code> would be read as <q>x semi factorial</q></li>
+     <li><code>semi-factorial [,semi-factorial] ($x)</code> would be read as <q>x semi factorial</q></li>
 
     </ul>
 
@@ -323,8 +318,8 @@
     </div>
 
     <p>Here the subscripted B denoting the <em>Bell number</em> is annotated using
-    <code>bell-number</code> intent which is not in the <q>[^core^]</q>
-    dictionary but is in the  <q>[^open^]</q> dictionary of more advanced or specialist
+    <code>bell-number</code> intent which is not in the <q>[=core=]</q>
+    dictionary but is in the  <q>[=open=]</q> dictionary of more advanced or specialist
     topics.</p>
 
    </section>
@@ -795,7 +790,7 @@
 
       <tr>
        <td rowspan="2" class="attname">encoding</td>
-       <td><em>[^string^]</em></td>
+       <td><em>[=string=]</em></td>
        <td><em>none</em></td>
       </tr>
 
@@ -805,7 +800,7 @@
 
       <tr>
        <td rowspan="2" class="attname">cd</td>
-       <td><em>[^string^]</em></td>
+       <td><em>[=string=]</em></td>
        <td>mathmlkeys</td>
       </tr>
 
@@ -815,7 +810,7 @@
 
       <tr>
        <td rowspan="2" class="attname">name</td>
-       <td><em>[^string^]</em></td>
+       <td><em>[=string=]</em></td>
        <td>alternate-representation</td>
       </tr>
 
@@ -911,7 +906,7 @@
 
       <tr>
        <td rowspan="2" class="attname">encoding</td>
-       <td><em>[^string^]</em></td>
+       <td><em>[=string=]</em></td>
        <td><em>none</em></td>
       </tr>
 
@@ -921,7 +916,7 @@
 
       <tr>
        <td rowspan="2" class="attname">cd</td>
-       <td><em>[^string^]</em></td>
+       <td><em>[=string=]</em></td>
        <td>mathmlkeys</td>
       </tr>
 
@@ -931,7 +926,7 @@
 
       <tr>
        <td rowspan="2" class="attname">name</td>
-       <td><em>[^string^]</em></td>
+       <td><em>[=string=]</em></td>
        <td>alternate-representation</td>
       </tr>
 
