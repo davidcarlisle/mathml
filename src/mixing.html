@@ -62,7 +62,7 @@
     intent             := concept-or-literal | number | reference | application
     concept-or-literal := NCName
     number             := '-'? digit+ ( '.' digit+ )?
-    reference          := '$' NCName
+    reference          := '$'+ NCName
     application        := intent hint? '(' arguments? ')'
     arguments          := intent ( ',' intent )*
     hint               := '@' ( 'prefix' | 'infix' | 'postfix' | 'silent' )
@@ -149,7 +149,7 @@
     
     
     <dt><dfn data-dfn-for="intent" id="intent_reference">reference</dfn></dt>
-    <dd>
+    <dd><p>
      <a data-link-for="intent" data-link-type="dfn" href="#intent_reference">references</a> prefixed with <code>$</code>. An argument
     reference such as <code>$name</code> references a descendent element
     that has an attribute <code>arg="name"</code>. Unlike <code class="attribute">id</code>
@@ -158,7 +158,14 @@
     search should only consider descendants, while stopping early at any
     elements that have a set <code class="attribute">intent</code> or
     <code class="attribute">arg</code> attribute, without descending
-    into them.
+    into them.</p>
+    <p>A reference may be prefixed by more than one `$` indicating that
+    the search should start at a parent element (going up one level for
+    each `$`). So <code>$$name</code> may reference a descendent of a
+    sibling element.  It is an error to indicate the
+    search starts on an ancestor of the `&lt;math&gt;` element and, to avoid
+    reference loops, it is an error to reference the current element or
+    any of its ancestors.</p>
     </dd>
 
     <dt><dfn data-dfn-for="intent" id="intent_application">application</dfn></dt>
@@ -385,14 +392,14 @@
     <p>Matrices</p>
     <div class="example mathml mmlcore">
 <pre>
-&lt;mrow intent="matrix">
+&lt;mrow intent="matrix($m)">
   &lt;mo>(&lt;/mo>
-  &lt;mtable>
-    &lt;mtr intent="arrayrow">
+  &lt;mtable arg="m">
+    &lt;mtr>
       &lt;mtd>&lt;mn>1&lt;/mn>&lt;/mtd>
       &lt;mtd>&lt;mn>0&lt;/mn>&lt;/mtd>
     &lt;/mtr>
-    &lt;mtr intent="arrayrow">
+    &lt;mtr>
       &lt;mtd>&lt;mn>0&lt;/mn>&lt;/mtd>
       &lt;mtd>&lt;mn>1&lt;/mn>&lt;/mtd>
     &lt;/mtr>
@@ -406,8 +413,8 @@
     <p>Aligned equations</p>
     <div class="example mathml mmlcore">
 <pre>
-&lt;mtable intent="list">
-  &lt;mtr intent="append">
+&lt;mtable arg="m" intent="aligned-equations($r1,$r2)">
+  &lt;mtr arg="r1">
     &lt;mtd columnalign="right">
       &lt;mn>2&lt;/mn>
       &lt;mo>&amp;#x2062;&lt;!--InvisibleTimes--&gt;&lt;/mo>
@@ -420,7 +427,7 @@
       &lt;mn>1&lt;/mn>
     &lt;/mtd>
   &lt;/mtr>
-  &lt;mtr intent="append">
+  &lt;mtr arg="r2">
     &lt;mtd columnalign="right">
       &lt;mi>y&lt;/mi>
     &lt;/mtd>
@@ -435,16 +442,19 @@
   &lt;/mtr>
 &lt;/mtable>
 </pre>
+<p class="ednote">
+ aligned-equations($r1,$r2)  or aligned-equations($m) or aligned-equations ?
+</p>
     </div>
 
     <p>Aligned Equations with wrapped expressions</p>
 
     <div class="example mathml mmlcore">
 <pre>
-&lt;mtable intent="list">
-  &lt;mtr intent="append">
+&lt;mtable intent="aliged-equations($r1">
+  &lt;mtr arg="r1" intent="equal($a,sum(...,$$e....$$f))">
     &lt;mtd columnalign="right">
-      &lt;mi>a&lt;/mi>
+      &lt;mi arg="a">a&lt;/mi>
     &lt;/mtd>
     &lt;mtd columnalign="center">
       &lt;mo>=&lt;/mo>
@@ -457,18 +467,25 @@
       &lt;mi>d&lt;/mi>
     &lt;/mtd>
   &lt;/mtr>
-  &lt;mtr intent="extend">
+  &lt;mtr intent="_">
     &lt;mtd columnalign="right">&lt;/mtd>
     &lt;mtd columnalign="center">&lt;/mtd>
-    &lt;mtd columnalign="left">
+    &lt;mtd arg="r1wrapped" columnalign="left">
       &lt;mo form="infix">+&lt;/mo>
-      &lt;mi>e&lt;/mi>
+      &lt;mi arg="e">e&lt;/mi>
       &lt;mo>-&lt;/mo>
-      &lt;mi>f&lt;/mi>
+      &lt;mi arg="f">f&lt;/mi>
     &lt;/mtd>
   &lt;/mtr>
 &lt;/mtable>
 </pre>
+<div class="ednote">
+ <p> `$$e` and `$$f` allowing row one to reference terms in row 2.</p>
+ <p>But
+still needing to fully annotate the infix expression using functional
+form. It does not allow the form in an earlier proposal which meant
+"read row1 and column 3 of row2 as a merged implied mrow"</p>
+</div>
     </div>
    </section>
   </section>
