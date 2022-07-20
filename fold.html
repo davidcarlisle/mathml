@@ -3,6 +3,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 <meta charset="UTF-8"/>
 <title>folding test</title>
+<style>
+ body{margin-left:2em;}
+ 
+summary.H5 {
+font-style:italic;
+font-weight:normal;
+position:relative; left:-2em;
+}
+
+summary.H5 > a.self-link::before{content:"§";text-decoration:none;color:#555;}
+
+
+details.H5 {
+    margin-top:2.5rem;
+}
+
+  
+</style>
 </head>
 <body>
 
@@ -15,6 +33,25 @@
  </details>
 
  <p>A paragraph that is always visible after the hidden text</p>
- 
+
+  
+   <details id="examples-of-linebreaking" class="H5"><summary id="presm_mo_linebreaks" class="H5"><a class="self-link" href="#presm_mo_linebreaks" aria-label="Permalink for Section 3.1.7.2"></a> 3.1.7.2 Examples of Linebreaking</summary>
+     
+     
+     <p>The following example demonstrates forced linebreaks and forced alignment:</p>
+     
+     
+     <p>This displays as </p>
+     
+     <p>Note that because <code class="attribute">indentalignlast</code> defaults to <code class="attributevalue">indentalign</code>,
+     in the above example <code class="attribute">indentalign</code> could have been used in place of
+     <code class="attribute">indentalignlast</code>.  Also, the specifying <code>linebreakstyle='before'</code>
+     is not needed because that is the default value.  </p>
+     </details>
+
+
+
+
+     <p>A paragraph that is always visible 3</p>
 </body>
 </html>
