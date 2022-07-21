@@ -12,7 +12,9 @@ font-weight:normal;
 position:relative; left:-2em;
 }
 
-summary.H5 > a.self-link::before{content:"§";text-decoration:none;color:#555;}
+
+details[open] > summary.H5 > a.self-linkb {display:none}
+
 
 
 details.H5 {
@@ -35,20 +37,30 @@ details.H5 {
  <p>A paragraph that is always visible after the hidden text</p>
 
   
-   <details id="examples-of-linebreaking" class="H5"><summary id="presm_mo_linebreaks" class="H5"><a class="self-link" href="#presm_mo_linebreaks" aria-label="Permalink for Section 3.1.7.2"></a> 3.1.7.2 Examples of Linebreaking</summary>
+   <details id="examples-of-linebreaking" class="H5"><summary id="presm_mo_linebreaks" class="H5"><a class="self-link" href="#presm_mo_linebreaks" zaria-label="Permalink for Section 3.1.7.2">§</a> 3.1.7.2 Examples of Linebreaking</summary>
      
      
-     <p>The following example demonstrates forced linebreaks and forced alignment:</p>
+     <p>The following example demonstrates forced linebreaks and forced alignment...</p>
      
-     <p>Note that because <code class="attribute">indentalignlast</code> defaults to <code class="attributevalue">indentalign</code>,
-     in the above example <code class="attribute">indentalign</code> could have been used in place of
-     <code class="attribute">indentalignlast</code>.  Also, the specifying <code>linebreakstyle='before'</code>
-     is not needed because that is the default value.  </p>
+   
      </details>
 
 
 
 
      <p>A paragraph that is always visible 3</p>
+  
+   <details id="examples-of-linebreakingb" class="H5"><summary id="presm_mo_linebreaksb" class="H5"><a class="self-linkb" href="#presm_mo_linebreaksb" zaria-label="Permalink for Section 3.1.7.2b">§</a> 3.1.7.2b Examples of Linebreaking (hide permalink)</summary>
+     
+     
+     <p>The following example also demonstrates forced linebreaks and forced alignment.....</p>
+     
+ 
+     </details>
+
+
+
+
+     <p>A paragraph that is always visible 4</p>
 </body>
 </html>
